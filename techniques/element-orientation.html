@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="using-an-elements-orientation">Using an Element’s Orientation</h1>
+<p>Similar to aspect ratio, orientation is something CSS spec authors recognize as being useful for styling, but are only support on the <code>&lt;html&gt;</code> element itself via Media Queries, and not something that you can use to apply styles to other elements in the document.</p>
+<p>The solution is to use JavaScript to determine an element's orientation by measuring the width and height of the element.</p>
+<h2 id="parts-required">Parts Required</h2>
+<h3 id="js-tests">JS Tests</h3>
+<p>Portrait:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">offsetWidth</span> <span class="op">&lt;</span> <span class="kw">this</span>.<span class="at">offsetHeight</span></code></pre></div>
+<p>Square:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">offsetWidth</span> <span class="op">==</span> <span class="kw">this</span>.<span class="at">offsetHeight</span></code></pre></div>
+<p>Landscape:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">this</span>.<span class="at">offsetHeight</span> <span class="op">&lt;</span> <span class="kw">this</span>.<span class="at">offsetWidth</span> </code></pre></div>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/eqcss.html">EQCSS</a></li>
+<li><a href="../plugins/selectory.html">Selectory</a></li>
+<li><a href="../plugins/reprocss.html">reproCSS</a></li>
+<li><a href="../plugins/container-queries-mixin.html">Container Queries Mixin</a></li>
+<li><a href="../plugins/scoped-eval-mixin.html">Scoped Eval Mixin</a></li>
+</ul>
+<h2 id="syntax-examples">Syntax Examples</h2>
+<h2 id="css-for-the-html-element-only">CSS (for the <code>&lt;html&gt;</code> element only)</h2>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@media</span> <span class="dv">(orientation: </span><span class="dt">portrait</span><span class="dv">)</span> <span class="dv">{</span>
+  body <span class="kw">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+<span class="dv">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@media</span> <span class="dv">(orientation: </span><span class="dt">landscape</span><span class="dv">)</span> <span class="dv">{</span>
+  body <span class="kw">{</span>
+    <span class="kw">background:</span> hotpink<span class="kw">;</span>
+  <span class="kw">}</span>
+<span class="dv">}</span></code></pre></div>
+<h3 id="eqcss">EQCSS</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element div and (orientation<span class="dv">:</span> square) <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">background:</span> orchid<span class="kw">;</span>
+  <span class="kw">}</span>
+}
+
+@element div and (orientation<span class="dv">:</span> portrait) <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">background:</span> darkturquoise<span class="kw">;</span>
+  <span class="kw">}</span>
+}
+
+@element div and (orientation<span class="dv">:</span> landscape) <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">background:</span> greenyellow<span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<h3 id="selectory">Selectory</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* portrait */</span>
+<span class="fl">.orientation</span><span class="at">[test=</span><span class="st">&quot;this.offsetWidth &lt; this.offsetHeight&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> orchid<span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="co">/* square */</span>
+<span class="fl">.orientation</span><span class="at">[test=</span><span class="st">&quot;this.offsetWidth == this.offsetHeight&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> darkturquoise<span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="co">/* landscape */</span>
+<span class="fl">.orientation</span><span class="at">[test=</span><span class="st">&quot;this.offsetWidth &gt; this.offsetHeight&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> greenyellow<span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="https://codepen.io/tomhodgins/pen/wzmyYQ">Portrait, Square, and Landscape Orientation Element Queries with EQCSS</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/ZKmXXw">Orientation-based Element Queries with Selectory</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://tomhodgins.github.io/element-queries-spec/element-queries.html#orientation">Orientation feature from CSS Element Queries spec</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

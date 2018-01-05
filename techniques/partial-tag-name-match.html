@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="selecting-elements-with-a-partial-tag-name">Selecting Elements with a Partial Tag Name</h1>
+<p>CSS selectors (and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"><code>document.querySelector()</code></a> in JavaScript) let you select elements by matching their HTML tag name, however there’s no way to match an element based on matching only a part of the tag name. Whether working with custom elements, or wanting to write a selector encompassing <code>&lt;h1&gt;</code> tags through <code>&lt;h6&gt;</code>, being able to match a partial tag name could be really useful when writing styles.</p>
+<p>Thankfully this is something we can do via <a href="https://developer.mozilla.org/en-US/docs/Web/XPath">XPath</a> in modern browsers (&gt;IE11) like this:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">document</span>.<span class="at">evaluate</span>(
+  <span class="st">&#39;//*[starts-with(name(), &quot;custom-&quot;)]&#39;</span><span class="op">,</span>
+  document<span class="op">,</span> 
+  <span class="kw">null</span><span class="op">,</span> 
+  <span class="va">XPathResult</span>.<span class="at">UNORDERED_NODE_ITERATOR_TYPE</span><span class="op">,</span> 
+  <span class="kw">null</span>
+)</code></pre></div>
+<p>This XPath selector, <code>//*[starts-with(name(), &quot;custom-&quot;)]</code>, returns all nodes with a tag name that starts with <code>custom-</code>, so it would match <code>&lt;custom-tag&gt;</code> and <code>&lt;custom-example&gt;</code>, but not a tag named <code>&lt;customizer-panel&gt;</code>.</p>
+<p>For those wishing to select elements in a similar way while authoring CSS, here are a few workarounds that can help:</p>
+<h2 id="parts-required">Parts Required</h2>
+<h3 id="js-tests">JS Tests</h3>
+<p>To select a tag name starting with <code>tag-name</code>:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ss">/</span><span class="sc">^</span><span class="ss">&lt;tag-name/</span>.<span class="at">test</span>(<span class="va">element</span>.<span class="at">outerHTML</span>)</code></pre></div>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/eqcss.html">EQCSS</a></li>
+<li><a href="../plugins/selectory.html">Selectory</a></li>
+<li><a href="../plugins/xpathy.html">XPathy</a></li>
+<li><a href="../plugins/reprocss.html">reproCSS</a></li>
+<li><a href="../plugins/container-queries-mixin.html">Container Queries Mixin</a></li>
+<li><a href="../plugins/scoped-eval-mixin.html">Scoped Eval Mixin</a></li>
+<li><a href="../plugins/xpath-selector-mixin.html">XPath Selector Mixin</a></li>
+</ul>
+<h2 id="syntax-examples">Syntax Examples</h2>
+<h3 id="eqcss">EQCSS</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element * <span class="kw">{</span>
+  <span class="er">eval(&quot;/^&lt;custom-/.test(outerHTML)</span> <span class="er">&amp;&amp;</span> <span class="er">&#39;$this&#39;&quot;)</span> <span class="er">{</span>
+    <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<h3 id="selectory">Selectory</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="at">[test=</span><span class="st">&quot;/^&lt;custom-/.test(this.outerHTML)&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="at">[test=</span><span class="st">&quot;/^&lt;h[\d]/.test(this.outerHTML)&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h3 id="xpathy">XPathy</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="at">[xpath=</span><span class="st">&quot;//*[starts-with(name(), &#39;custom-&#39;)]&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="at">[xpath=</span><span class="st">&quot;//div/*[starts-with(name(),&#39;h&#39;)][substring(name(),2) &gt; 0]&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">red</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="https://codepen.io/tomhodgins/pen/xdNjdG">Partial tag name match with EQCSS</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/JJodPz">Partial tag name match with XPathy</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/RVQGXz">Selecting H1-H6 with Selectory</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/EXaaBd">Selecting H1-H6 with XPathy</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

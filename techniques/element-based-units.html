@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="element-based-units">Element-Based Units</h1>
+<p>One thing that would be useful when writing CSS would be a set of units that behave similar to the <a href="https://drafts.csswg.org/css-values-4/#viewport-relative-lengths">viewport-percentage units</a> <code>vw</code>, <code>vh</code>, <code>vmin</code>, and <code>vmax</code> (which represent 1% of the browser’s width, height, shortest edge, and longest edge), but instead of being based on the size of the browser’s viewport they would be based on the dimensions of each individual element to which they apply.</p>
+<p>Let’s call these new units “element-percentage units”, and name them <code>ew</code>, <code>eh</code>, <code>emin</code>, and <code>emax</code>. What benefit would they be over the existing CSS units, like <code>%</code> or the viewport-percentage units? Possible benefits include:</p>
+<ul>
+<li>styling the <code>height</code> in relation to the rendered <code>offsetWidth</code></li>
+<li>responsive font sizing <em>similar to using <code>vw</code></em> but without needing to be in a full-width container</li>
+</ul>
+<h2 id="parts-required">Parts Required</h2>
+<h3 id="js-tests">JS Tests</h3>
+<p>Element Width units:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">element</span>.<span class="at">offsetWidth</span> / <span class="dv">100</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span></code></pre></div>
+<p>Element Height units:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">element</span>.<span class="at">offsetHeight</span> / <span class="dv">100</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span></code></pre></div>
+<p>Element Minimum units:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Math</span>.<span class="at">min</span>(<span class="va">element</span>.<span class="at">offsetWidth</span><span class="op">,</span> <span class="va">element</span>.<span class="at">offsetHeight</span>) / <span class="dv">100</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span></code></pre></div>
+<p>Element Maximum units:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Math</span>.<span class="at">max</span>(<span class="va">element</span>.<span class="at">offsetWidth</span><span class="op">,</span> <span class="va">element</span>.<span class="at">offsetHeight</span>) / <span class="dv">100</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span></code></pre></div>
+<h3 id="js-events">JS Events</h3>
+<p>You can listen on any events, including using <a href="http://rawgit.com/WICG/ResizeObserver/master/index.html">Resize Observer</a> or <a href="https://developer.mozilla.org/en/docs/Web/API/MutationObserver">Mutation Observer</a> to help detect when changes may have occurred.</p>
+<p>In general you can satisfy most use cases by listening to the following four events:</p>
+<ul>
+<li><code>window.load</code></li>
+<li><code>window.resize</code></li>
+<li><code>window.input</code></li>
+<li><code>window.click</code></li>
+</ul>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/eqcss.html">EQCSS</a></li>
+<li><a href="../plugins/varsity.html">Varsity</a></li>
+<li><a href="../plugins/reprocss.html">reproCSS</a></li>
+<li><a href="../plugins/scoped-eval-mixin.html">Scoped Eval Mixin</a></li>
+<li><a href="../plugins/varius.html">VARIUS</a></li>
+</ul>
+<h2 id="syntax-examples">Syntax Examples</h2>
+<h3 id="eqcss">EQCSS</h3>
+<h4 id="ew-unit"><code>ew</code> unit</h4>
+<p>Equal to 1% of the width of the scoped element</p>
+<p>Example of <code>ew</code> Units Inside a Scoped Style</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element <span class="fl">.widget</span> <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">font-size:</span> <span class="dt">10</span>ew<span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<p>In this case the <code>font-size</code> of any element with a class of <code>.widget</code> is equal to 10% of the scoped element’s width.</p>
+<h4 id="eh-unit"><code>eh</code> unit</h4>
+<p>Equal to 1% of the height of the scoped element</p>
+<p>Example of <code>eh</code> Units Inside a Scoped Style</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element <span class="fl">.widget</span> <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">font-size:</span> <span class="dt">10</span>eh<span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<p>In this case the <code>font-size</code> of any element with a class of <code>.widget</code> is equal to 10% of the scoped element’s height.</p>
+<h4 id="emin-unit"><code>emin</code> unit</h4>
+<p>Equal to the smaller of <code>1ew</code> or <code>1eh</code></p>
+<p>Example of <code>emin</code> Units Inside a Scoped Style</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element <span class="fl">.widget</span> <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">font-size:</span> <span class="dt">10</span>emin<span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<p>In this case the <code>font-size</code> of any element with a class of <code>.widget</code> is equal to 10% of the scoped element’s shortest edge.</p>
+<h4 id="emax-unit"><code>emax</code> unit</h4>
+<p>Equal to the larger of <code>1ew</code> or <code>1eh</code></p>
+<p>Example of <code>emax</code> Units Inside a Scoped Style</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element <span class="fl">.widget</span> <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">font-size:</span> <span class="dt">10</span>emax<span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<p>In this case the <code>font-size</code> of any element with a class of <code>.widget</code> is equal to 10% of the scoped element’s longest edge.</p>
+<h4 id="varsity">Varsity</h4>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#demo</span> <span class="kw">{</span>
+  <span class="kw">height:</span> calc((var(--demo-offsetWidth) / <span class="dt">100px</span>) * <span class="dt">50</span>)<span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h4 id="reprocss">reproCSS</h4>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;style</span><span class="ot"> process=</span><span class="st">auto</span><span class="kw">&gt;</span>
+  <span class="fl">#demo</span> <span class="kw">{</span>
+    <span class="kw">height:</span> ${demo<span class="dt">.</span>offsetWidth<span class="kw">}</span>px;
+  }
+<span class="kw">&lt;/style&gt;</span></code></pre></div>
+<h4 id="scoped-eval-mixin">Scoped Eval Mixin</h4>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">scoped</span>(<span class="st">&#39;.demo&#39;</span><span class="op">,</span> <span class="st">&#39;height: eval((this.offsetWidth / 100) * 50)px;&#39;</span>)</code></pre></div>
+<h4 id="varius">VARIUS</h4>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.demo</span> <span class="kw">{</span>
+  <span class="kw">height:</span> calc((var(--offsetWidth) / <span class="dt">100</span>) * <span class="dt">50px</span>)<span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="https://codepen.io/tomhodgins/pen/YNKVMQ">Responsive <code>border</code> sizing with EQCSS and <code>ew</code> units</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/wovGev">Using EQCSS and <code>ew</code> units for responsive scalable aspect ratio</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/mmXVjg">Element-Based font sizing with CSSplus/Varsity</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://tomhodgins.github.io/element-queries-spec/element-queries.html#element-percentage-units">Element-Percentage Units from CSS Element Queries spec</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

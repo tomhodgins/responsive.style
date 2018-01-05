@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="event-driven-styling">Event-Driven Styling</h1>
+<p>Writing styles in CSS is kind of like having a representation of what styling should be active in different states within your HTML document. Because events happen inside the browser which are good triggers for styling changes, CSS already responds to some mouse and keyboard events through pseudo-classes like <code>:hover</code>, <code>:focus</code>, and <code>:active</code>.</p>
+<p>Other ways CSS responds to events by allowing authors to represent the styling of elements based on state responding to events are things like media queries, which would correspond to the resize events that happen when the browser resizes after it has loaded. In order to continue to style the site well the browser exposes limited information about the browser (the changing <code>innerWidth</code> and <code>innerHeight</code>) to CSS for the purpose of toggling styles.</p>
+<h2 id="the-wrong-way-to-extend-css">The wrong way to extend CSS</h2>
+<p>There are a number of ways that JavaScript and CSS can interact, and that means JavaScript can be used to extend the expressive styling power of CSS. Some ways are more ideal than others, so let's think briefly about some common ones and their implications:</p>
+<ul>
+<li>Using JavaScript to toggle classes (storing state in HTML = slow, unpredictable)</li>
+<li>Polyfilling support inside CSS (good for supporting missing features, bad for introducing new features, risky)</li>
+</ul>
+<h2 id="the-right-way-to-extend-css">The right way to extend CSS:</h2>
+<ul>
+<li>Event-driven (responding to events in the browser)</li>
+<li>Virtual Stylesheets (stylesheets updating to reflect the current styles)</li>
+</ul>
+<h2 id="benefits-of-event-driven-virtual-stylesheets">Benefits of event-driven virtual stylesheets</h2>
+<ul>
+<li>100% the benefit and expressive capabilities of CSS</li>
+<li>Takes full advantage of what JS has to offer</li>
+<li>State may be managed in JS already, in which case you use JavaScript's state for styling</li>
+</ul>
+<h2 id="best-practices-for-using-virtual-stylesheets">Best practices for using virtual stylesheets</h2>
+<ul>
+<li>use as many different virtual stylesheets as you need</li>
+<li>divide styles into virtual stylesheet by event</li>
+<li>limit the number of event listeners as much as possible</li>
+<li>limit the number of elements probed per stylesheet recalculation</li>
+</ul>
+<h2 id="the-four-key-global-events">The Four Key Global Events</h2>
+<p>If you want a general-purpose CSS reprocessor, for most applications the following global events will suffice:</p>
+<ul>
+<li><code>window.load</code></li>
+<li><code>window.resize</code></li>
+<li><code>window.input</code></li>
+<li><code>window.click</code></li>
+</ul>
+<p>However, it may make more sense to assign event listeners for other events, or to add event listeners to individual elements instead of recalculating on global events. Just keep in mind it's always ideal to limit the total number of recalculations requested, so consider performance and be very conservative when assigning event listeners.</p>
+<h2 id="element-specific-events">Element-Specific Events</h2>
+<ul>
+<li><code>element.scroll</code></li>
+<li><code>element.change</code></li>
+<li><code>element.blur</code></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> When a web page is taller than the browser viewport and scrolled, some browsers report this as the <code>&lt;html&gt;</code> element being scrolled, and some browsers report this as the <code>&lt;body&gt;</code> element being scrolled. When listening to scroll events for individual elements it’s simple to add one event listener and use the result, but listening for the page itself to scroll requires monitoring <em>both</em> <code>&lt;html&gt;</code> and <code>&lt;body&gt;</code> scroll position for a truly cross-browser effect.</p>
+</blockquote>
+<h2 id="alternative-events">Alternative Events</h2>
+<ul>
+<li><a href="http://rawgit.com/WICG/ResizeObserver/master/index.html">Resize Observer</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/MutationObserver">Mutation Observer</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://speakerdeck.com/tomhodgins/the-edge-of-css">The Edge of CSS [slides]</a></li>
+<li><a href="https://codepen.io/tomhodgins/post/understanding-eqcss-triggers">Understanding EQCSS Triggers</a></li>
+<li><a href="https://www.sitepoint.com/how-we-built-eqcss-why-you-should-try-building-your-own-polyfills-too">How We Built EQCSS &amp; Why You Should Try Building Your Own Polyfills Too</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

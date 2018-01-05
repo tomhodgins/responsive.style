@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="slinky">Slinky</h1>
+<p><strong>Add JavaScript tests to &lt;link&gt; tags to toggle stylesheets</strong></p>
+<h2 id="about">About</h2>
+<p>Similar to how you can add media queries to <code>&lt;link&gt;</code> tags with the <code>media=&quot;&quot;</code> attribute, Slinky lets you define a custom <code>data-selector=&quot;&quot;</code> and <code>data-test=&quot;&quot;</code> attributes to any <code>&lt;link&gt;</code> tag to define an element to watch, and a JavaScript test to evaluate from the context of the matching element.</p>
+<h2 id="usage">Usage</h2>
+<p>A simple usage might toggle the display of a stylesheet when the <code>#sidebar</code> element is wider than 500px:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span>
+<span class="ot">  rel=</span><span class="st">&quot;stylesheet&quot;</span>
+<span class="ot">  href=</span><span class="st">&quot;sidebar.css&quot;</span>
+<span class="ot">  media=</span><span class="st">&quot;none&quot;</span>
+<span class="ot">  data-selector=</span><span class="st">&quot;#sidebar&quot;</span>
+<span class="ot">  data-test=</span><span class="st">&quot;this.offsetWidth &gt; 500&quot;</span>
+<span class="kw">&gt;</span></code></pre></div>
+<p>By default Slinky will add event listeners for <code>window.load</code>, <code>window.resize</code>, <code>window.input</code> and <code>window.click</code>, but you can override this by optionally specifying a <code>data-event=&quot;&quot;</code> attribute as well. This stylesheet would listen to <code>window.scroll</code> alone:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span>
+<span class="ot">  rel=</span><span class="st">&quot;stylesheet&quot;</span>
+<span class="ot">  href=</span><span class="st">&quot;scroll.css&quot;</span>
+<span class="ot">  media=</span><span class="st">&quot;none&quot;</span>
+<span class="ot">  data-selector=</span><span class="st">&quot;body&quot;</span>
+<span class="ot">  data-test=</span><span class="st">&quot;this.scrollTop &gt; innerHeight&quot;</span>
+<span class="ot">  data-event=</span><span class="st">&quot;scroll&quot;</span>
+<span class="kw">&gt;</span></code></pre></div>
+<p>Note that in these examples I've included <code>media=&quot;none&quot;</code> so the stylesheets default to being hidden - for progressive enhancement if you wish to default to the stylesheets applying unless they need to be hidden by JS, you can leave the <code>media=&quot;none&quot;</code> off and the stylesheet will load by default, instead of remain hidden by default.</p>
+<h2 id="techniques-capable">Techniques Capable</h2>
+<ul>
+<li><a href="../techniques/style-scoping.html">Style Scoping</a></li>
+<li><a href="../techniques/element-queries.html">Element Queries</a></li>
+<li><a href="../techniques/container-queries.html">Container Queries</a></li>
+<li><a href="../techniques/element-width.html">Using an Element’s Width</a></li>
+<li><a href="../techniques/element-height.html">Using an Element’s Height</a></li>
+<li><a href="../techniques/element-characters.html">Using an Element’s Text Characters</a></li>
+<li><a href="../techniques/element-children.html">Using an Element’s Child Elements</a></li>
+<li><a href="../techniques/element-scroll.html">Using an Element’s Scroll Position</a></li>
+<li><a href="../techniques/element-aspect-ratio.html">Using an Element’s Aspect Ratio</a></li>
+<li><a href="../techniques/element-orientation.html">Using an Element’s Orientation</a></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://tomhodgins.github.io/slinky">Slinky.js website</a></li>
+<li><a href="https://tomhodgins.github.io/slinky/tests/demo.html">Demo page</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/veZYPK">Slinky on Codepen</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="varius">VARIUS</h1>
+<p><strong>JS Properties for Elements as CSS Variables</strong></p>
+<h2 id="about">About</h2>
+<p>The idea of VARIUS is to use JavaScript to expose properties of elements (like <code>offsetWidth</code>, <code>innerHTML.length</code>, <code>children.length</code>, and even things like <code>window.innerWidth</code> to CSS through CSS variables. Since CSS variables are scoped at the level of each element we are able to write simple CSS that is ‘scoped’ to the state of each individual element they apply to as it currently appears in the browser.</p>
+<p>The full list of available variables you can use in your CSS is:</p>
+<h3 id="global-variables">Global Variables</h3>
+<ul>
+<li><code>innerWidth</code></li>
+<li><code>innerHeight</code></li>
+</ul>
+<h3 id="scoped-variables">Scoped Variables</h3>
+<ul>
+<li><code>offsetWidth</code></li>
+<li><code>offsetHeight</code></li>
+<li><code>offsetLeft</code></li>
+<li><code>offsetTop</code></li>
+<li><code>scrollWidth</code></li>
+<li><code>scrollHeight</code></li>
+<li><code>scrollLeft</code></li>
+<li><code>scrollTop</code></li>
+<li><code>children</code></li>
+<li><code>characters</code></li>
+<li><code>value</code></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="using-value.length-as-a-variable-in-css">Using <code>value.length</code> as a variable in CSS</h3>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;input</span><span class="ot"> placeholder=</span><span class="st">&quot;Type to change background&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;textarea</span><span class="ot"> placeholder=</span><span class="st">&quot;Type to change background&quot;</span><span class="kw">&gt;&lt;/textarea&gt;</span>
+
+<span class="kw">&lt;style&gt;</span>
+  input,
+  textarea <span class="kw">{</span>
+    <span class="kw">background:</span> <span class="dt">hsl(</span>var(--value<span class="dt">)</span>, <span class="dt">75%</span>, <span class="dt">75%</span>)<span class="kw">;</span>
+  <span class="kw">}</span>
+<span class="kw">&lt;/style&gt;</span></code></pre></div>
+<h3 id="using-offsetwidth-to-make-scalable-apect-ratios">Using <code>offsetWidth</code> to make scalable apect ratios</h3>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> style=</span><span class="st">max-width:25%</span><span class="kw">&gt;</span>25% wide<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;div</span><span class="ot"> style=</span><span class="st">max-width:50%</span><span class="kw">&gt;</span>50% wide<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;div&gt;</span>Full-width<span class="kw">&lt;/div&gt;</span>
+
+<span class="kw">&lt;style&gt;</span>
+  div <span class="kw">{</span>
+    <span class="kw">margin:</span> <span class="dt">1em</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+    <span class="kw">height:</span> calc(var(--offsetWidth) / (<span class="dt">16</span>/<span class="dt">9</span>) * <span class="dt">1px</span>)<span class="kw">;</span>
+  <span class="kw">}</span>
+<span class="kw">&lt;/style&gt;</span></code></pre></div>
+<h3 id="using-children.length-as-a-variable">Using <code>children.length</code> as a variable</h3>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ol&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;li&gt;&lt;/ol&gt;</span>
+<span class="kw">&lt;ol&gt;&lt;li&gt;&lt;/ol&gt;</span>
+
+<span class="kw">&lt;style&gt;</span>
+  ol <span class="kw">{</span>
+    <span class="kw">padding:</span> <span class="dt">0</span><span class="kw">;</span>
+    <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
+    <span class="kw">width:</span> <span class="dt">100%</span><span class="kw">;</span>
+    <span class="kw">list-style:</span> <span class="dt">none</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span><span class="kw">;</span>
+    <span class="kw">overflow:</span> <span class="dt">hidden</span><span class="kw">;</span>
+    <span class="co">/* pass the parent&#39;s value down to children */</span>
+    <span class="kw">--ul-children:</span> var(--children)<span class="kw">;</span>
+  <span class="kw">}</span>
+  ol li <span class="kw">{</span>
+    <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
+    <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span><span class="kw">;</span>
+    <span class="kw">height:</span> <span class="dt">100px</span><span class="kw">;</span>
+    <span class="kw">float:</span><span class="dt">left</span><span class="kw">;</span>
+    <span class="kw">width:</span> calc(<span class="dt">100%</span> / var(--ul-children))<span class="kw">;</span>
+  <span class="kw">}</span>
+<span class="kw">&lt;/style&gt;</span></code></pre></div>
+<h2 id="techniques-capable">Techniques Capable</h2>
+<ul>
+<li><a href="../techniques/element-width.html">Using an Element’s Width</a></li>
+<li><a href="../techniques/element-height.html">Using an Element’s Height</a></li>
+<li><a href="../techniques/element-characters.html">Using an Element’s Text Characters</a></li>
+<li><a href="../techniques/element-children.html">Using an Element’s Child Elements</a></li>
+<li><a href="../techniques/element-scroll.html">Using an Element’s Scroll Position</a></li>
+<li><a href="../techniques/element-based-units.html">Element-Based Units</a></li>
+<li><a href="../techniques/scalable-element.html">Scaling any HTML Element</a></li>
+<li><a href="../techniques/number-comparisons-for-attribute-values.html">Compare Attribute Values as Numbers</a></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li>View the demo page: <a href="https://tomhodgins.github.io/varius/">tomhodgins.github.io/varius</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

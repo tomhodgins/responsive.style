@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="scrollery">Scrollery</h1>
+<p><strong>Element Scroll Position Exposed via CSS Variables</strong></p>
+<p>Scrollery is a CSS reprocessor that makes the following JS values available as CSS variables for any element you tell the plugin to watch:</p>
+<ul>
+<li><code>scrollWidth</code></li>
+<li><code>scrollHeight</code></li>
+<li><code>scrollLeft</code></li>
+<li><code>scrollTop</code></li>
+</ul>
+<p>To have scrollery watch an element, you need to give that element a unique identifier, as well as add the <code>data-scrollery</code> attribute. The plugin will use either the value of the <code>data-scrollery</code> attribute, or else the value of the <code>id</code> (if defined) for an element.</p>
+<p>By default, Scrollery will watch 0 elements. If you add a <code>data-scrollery</code> attribute to either the <code>&lt;html&gt;</code> or <code>&lt;body&gt;</code> element it will attach an event listener for the <code>scroll</code> event on the <code>window</code>, otherwise if you add the <code>data-scrollery</code> attribute to other elements it will add a <code>scroll</code> listener to that element.</p>
+<p>To run Scrollery whenever you want, use the <code>scrollery.load()</code> function in JS.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">example</span><span class="ot"> data-scrollery</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre></div>
+<p>And the following example are both equivalent, and resolve to a name of <code>example</code>:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> data-scrollery=</span><span class="st">example</span><span class="kw">&gt;&lt;/div&gt;</span></code></pre></div>
+<p>Once the plugin is aware of an element to watch, and the unique name of that element, it will make the above values available in the following format: <code>--name-value</code>, for <code>example</code>:</p>
+<ul>
+<li><code>--example-scrollWidth</code></li>
+<li><code>--example-scrollHeight</code></li>
+<li><code>--example-scrollTop</code></li>
+<li><code>--example-scrollLeft</code></li>
+</ul>
+<h2 id="techniques-capable">Techniques Capable</h2>
+<ul>
+<li><a href="../techniques/element-width.html">Using an Element’s Width</a></li>
+<li><a href="../techniques/element-height.html">Using an Element’s Height</a></li>
+<li><a href="../techniques/element-scroll.html">Using an Element’s Scroll Position</a></li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://github.com/tomhodgins/cssplus/blob/gh-pages/scrollery.js">Scrollery on Github</a></li>
+<li><a href="http://tomhodgins.github.io/cssplus/test/scrollery.html">Scrollery Demo</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="selecting-elder-siblings-of-an-element">Selecting Elder Siblings of an Element</h1>
+<p>CSS is able to select elements, the junior siblings of elements, and the children of elements, but it cannot select the elder siblings of elements.</p>
+<p>The need for this is rare, but falls totally outside the scope of what CSS is designed to do. If you need the ability to style the elder siblings of an element you'll likely need to rely on JavaScript to help.</p>
+<h2 id="parts-required">Parts Required</h2>
+<p>The key to being able to style elder siblings is to be able to compare the position to two elements in HTML within their parent element as numbers. If we can use JavaScript to find the index of the element in question we can compare it against the index of all of the children of the parent element and apply styles.</p>
+<h3 id="js-tests">JS Tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">logElder</span>(selector) <span class="op">{</span>
+
+  <span class="kw">var</span> element <span class="op">=</span> <span class="va">document</span>.<span class="at">querySelector</span>(selector)
+
+  <span class="kw">var</span> child <span class="op">=</span> <span class="va">element</span>.<span class="va">parentNode</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;*&#39;</span>)
+
+  <span class="kw">var</span> selectorIndex <span class="op">=</span> [].<span class="va">indexOf</span>.<span class="at">call</span>(child<span class="op">,</span> element)
+
+  <span class="va">child</span>.<span class="at">forEach</span>(<span class="kw">function</span>(tag) <span class="op">{</span>
+
+    <span class="kw">var</span> tagIndex <span class="op">=</span> [].<span class="va">indexOf</span>.<span class="at">call</span>(child<span class="op">,</span> tag)
+
+    <span class="cf">if</span> (tagIndex <span class="op">&lt;</span> selectorIndex) <span class="op">{</span>
+
+      <span class="co">// do stuff</span>
+      <span class="va">console</span>.<span class="at">log</span>(tag)
+
+    <span class="op">}</span>
+
+  <span class="op">}</span>)
+
+<span class="op">}</span></code></pre></div>
+<h2 id="syntax-examples">Syntax Examples</h2>
+<h3 id="elder-sibling-mixin">Elder Sibling Mixin</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">elder</span>(<span class="st">&#39;.demo&#39;</span><span class="op">,</span> <span class="st">&#39;background: lime;&#39;</span>)</code></pre></div>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/elder-selector-mixin.html">Elder Selector Mixin</a></li>
+</ul>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="https://tomhodgins.github.io/reprocss/test/elder-selector-mixin.html">Elder Selector Mixin Demo</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

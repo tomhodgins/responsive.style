@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="element-queries">Element Queries</h1>
+<p>An element query is a <a href="style-scoping.html">scoped style</a> with the addition of one or more responsive conditions. A responsive condition could look like <code>(min-width: 500px)</code> or <code>(max-characters: 20)</code>, and would prevent the block of css rules from applying to the page until the responsive conditions are true.</p>
+<p>Here is an example of an element query in the same syntax:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element <span class="st">&#39;input&#39;</span> and (max-characters<span class="dv">:</span> 20) <span class="kw">{}</span></code></pre></div>
+<p>Now one thing you can notice about this right away is that max-characters is not a media feature supported by <code>@media</code> queries - as it turns out when writing responsive styles for elements instead of for the viewport, the ability to base responsive conditions on a wider variety of properties makes sense. The full list of possible responsive conditions element queries might looks something like this:</p>
+<ul>
+<li><a href="container-queries.html">Container Queries</a></li>
+<li><a href="element-width.html">Using an Element’s Width</a></li>
+<li><a href="element-height.html">Using an Element’s Height</a></li>
+<li><a href="element-characters.html">Using an Element’s Text Characters</a></li>
+<li><a href="element-children.html">Using an Element’s Child Elements</a></li>
+<li><a href="element-scroll.html">Using an Element’s Scroll Position</a></li>
+<li><a href="element-aspect-ratio.html">Using an Element’s Aspect Ratio</a></li>
+<li><a href="element-orientation.html">Using an Element’s Orientation</a></li>
+</ul>
+<p>That’s a lot of new flexibility for creating responsive layouts!</p>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/eqcss.html">EQCSS</a></li>
+<li><a href="../plugins/aspecty.html">Aspecty</a></li>
+<li><a href="../plugins/cursory.html">Cursory</a></li>
+<li><a href="../plugins/scrollery.html">Scrollery</a></li>
+<li><a href="../plugins/selectory.html">Selectory</a></li>
+<li><a href="../plugins/varsity.html">Varsity</a></li>
+<li><a href="../plugins/xpathy.html">XPathy</a></li>
+<li><a href="../plugins/reprocss.html">reproCSS</a></li>
+<li><a href="../plugins/aspect-ratio-mixin.html">Aspect Ratio Mixin</a></li>
+<li><a href="../plugins/auto-expand-mixin.html">Auto Expand Mixin</a></li>
+<li><a href="../plugins/container-queries-mixin.html">Container Queries Mixin</a></li>
+<li><a href="../plugins/scoped-eval-mixin.html">Scoped Eval Mixin</a></li>
+<li><a href="../plugins/xpath-selector-mixin.html">XPath Selector Mixin</a></li>
+<li><a href="../plugins/varius.html">VARIUS</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://github.com/tomhodgins/element-queries-spec">CSS Element Queries spec (non-standard)</a></li>
+<li><a href="https://hashnode.com/post/why-i-love-element-queries-and-you-should-too-cizgq4uyy000m7m53dsyeghst">Why I Love Element Queries &amp; You Should Too!</a></li>
+<li><a href="https://www.smashingmagazine.com/2016/07/how-i-ended-up-with-element-queries-and-how-you-can-use-them-today/">Element Queries, And How You Can Use Them Today</a></li>
+<li><a href="https://codepen.io/tomhodgins/post/what-the-heck-are-element-queries-container-queries">What the Heck are Element Queries &amp; Container Queries?</a></li>
+<li><a href="https://codepen.io/tomhodgins/post/forget-mobile-first-desktop-first-it-s-time-to-think-element-first">Forget Mobile-First &amp; Desktop-First, it's Time to Think Element-First</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

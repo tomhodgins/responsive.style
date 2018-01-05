@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href=https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text rel=stylesheet>
+  <link href=/book/src/style.css rel=stylesheet>
+</head>
+<body>
+<h1 id="event-driven-styling">Event-Driven Styling</h1>
+<h2 id="the-four-key-global-events">The Four Key Global Events</h2>
+<ul>
+<li><code>window.load</code></li>
+<li><code>window.resize</code></li>
+<li><code>window.input</code></li>
+<li><code>window.click</code></li>
+</ul>
+<h2 id="element-specific-events">Element-Specific Events</h2>
+<ul>
+<li><code>element.scroll</code></li>
+<li><code>element.change</code></li>
+<li><code>element.blur</code></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> When a web page is taller than the browser viewport and scrolled, some browsers report this as the <code>&lt;html&gt;</code> element being scrolled, and some browsers report this as the <code>&lt;body&gt;</code> element being scrolled. When listening to scroll events for individual elements it’s simple to add one event listener and use the result, but listening for the page itself to scroll requires monitoring <em>both</em> <code>&lt;html&gt;</code> and <code>&lt;body&gt;</code> scroll position for a truly cross-browser effect.</p>
+</blockquote>
+<h2 id="alternative-events">Alternative Events</h2>
+<ul>
+<li><a href="http://rawgit.com/WICG/ResizeObserver/master/index.html">Resize Observer</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/MutationObserver">Mutation Observer</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://speakerdeck.com/tomhodgins/the-edge-of-css">The Edge of CSS [slides]</a></li>
+<li><a href="https://codepen.io/tomhodgins/post/understanding-eqcss-triggers">Understanding EQCSS Triggers</a></li>
+<li><a href="https://www.sitepoint.com/how-we-built-eqcss-why-you-should-try-building-your-own-polyfills-too">How We Built EQCSS &amp; Why You Should Try Building Your Own Polyfills Too</a></li>
+</ul>
+<nav>
+  <a href=/book/>Home</a>
+  <a href=/book/techniques>Techniques</a>
+  <a href=/book/plugins>Plugins</a>
+  <a href=/book/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

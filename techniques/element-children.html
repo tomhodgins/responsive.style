@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="using-an-elements-child-elements">Using an Element’s Child Elements</h1>
+<p>No browsers allow you to apply styles to an element based on the number of child elements if contains. The <code>:has()</code> selector would in theory, but since it has been Adopted into the CSS spec zero browsers have offered any support for it.</p>
+<p>Thankfully even though CSS has no knowledge of the number of children an element has, both JavaScript and XPath are aware of this and are able to let you use this knowledge for resolving selectors.</p>
+<h2 id="parts-required">Parts Required</h2>
+<h3 id="js-tests">JS Tests</h3>
+<p>Counting Children:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">element</span>.<span class="va">children</span>.<span class="at">length</span></code></pre></div>
+<p>Counting Tags:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">element</span>.<span class="at">getElementsByTagName</span>(<span class="st">&#39;*&#39;</span>).<span class="at">length</span></code></pre></div>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/eqcss.html">EQCSS</a></li>
+<li><a href="../plugins/selectory.html">Selectory</a></li>
+<li><a href="../plugins/varsity.html">Varsity</a></li>
+<li><a href="../plugins/reprocss.html">reproCSS</a></li>
+<li><a href="../plugins/container-queries-mixin.html">Container Queries Mixin</a></li>
+<li><a href="../plugins/scoped-eval-mixin.html">Scoped Eval Mixin</a></li>
+<li><a href="../plugins/varius.html">VARIUS</a></li>
+</ul>
+<h2 id="syntax-examples">Syntax Examples</h2>
+<h2 id="css-valid-but-0-browser-support">CSS (valid, but 0% browser support)</h2>
+<pre><code>:has(:nth-of-child(5)) {
+  background: lime;
+}</code></pre>
+<h3 id="eqcss">EQCSS</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@element <span class="fl">.min-children</span> and (min-children<span class="dv">:</span> 5) <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">background:</span> greenyellow<span class="kw">;</span>
+    <span class="kw">border-color:</span> limegreen<span class="kw">;</span>
+  <span class="kw">}</span>
+}
+
+@element <span class="fl">.max-children</span> and (max-children<span class="dv">:</span> 5) <span class="kw">{</span>
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">background:</span> greenyellow<span class="kw">;</span>
+    <span class="kw">border-color:</span> limegreen<span class="kw">;</span>
+  <span class="kw">}</span>
+}</code></pre></div>
+<h3 id="selectory">Selectory</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.min-children</span><span class="at">[test=</span><span class="st">&quot;this.children.length &gt; 3&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.max-children</span><span class="at">[test=</span><span class="st">&quot;this.children.length &lt; 3&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h3 id="xpathy">XPathy</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* min-children: 3 */</span>
+<span class="at">[xpath=</span><span class="st">&quot;//ul[*[3]]&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> violet<span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="co">/* max-children: 3 */</span>
+<span class="at">[xpath=</span><span class="st">&quot;//ul[not(*[3])]&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="https://codepen.io/tomhodgins/pen/dXGoMZ">Min-Children Element Query with EQCSS</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/mEVJPK">Max-Children Element Query with EQCSS</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/ZKmXXw">Children-based Element Queries with Selectory</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/qjEdxE">Children-based Element Queries with XPathy</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://tomhodgins.github.io/element-queries-spec/element-queries.html#children">Children feature from CSS Element Queries spec</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="css-reprocessing-terminology">CSS Reprocessing Terminology</h1>
+<dl>
+<dt>
+CSS Reprocessor
+<dd>
+<p>Software that processes (or reprocesses on an as-needed basis) CSS code in the browser after the page loads.</p>
+<dt>
+Element Queries
+<dd>
+<p>Element queries are scoped styles with responsive breakpoints set to properties of the individual elements they are styling.</p>
+<dt>
+Meta-Selector
+<dd>
+<p>A meta-selector describes the relationship between the element in the scope of a scoped style and elements around it in the DOM.</p>
+<dt>
+Scoped Styles
+<dd>
+<p>Scoped styles refer to three ideas: - stylesheets that depend on logic to apply (container queries) - styles that apply only to elements that pass a test (element queries, scoped styles) - the ability to use JavaScript properties of elements for styling purposes (scoped values, scoped units)</p>
+<dt>
+Selector Resolver
+<dd>
+<p>A Selector Resolver is a selector that depends on a test (usually in JavaScript) to determine which elements in the document a style should apply to.</p>
+<dt>
+Virtual Stylesheet
+<dd>
+<p>A <code>&lt;style&gt;</code> tag that contains the rendered output of a stylesheet comprised of JavaScript logic in addition to CSS, with recalculations triggered by events happening in the browser.</p>
+</dl>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

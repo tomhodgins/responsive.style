@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="selecting-the-ancestor-of-an-element">Selecting the Ancestor of an Element</h1>
+<p>CSS is limited to selecting elements, their following (younger) siblings, and children — but is unable to select elements ‘above’ or before elements in the tree structure. CSS in browsers can’t select the parent, or ancestor of another element. There is a selector in the CSS specs called <a href="https://drafts.csswg.org/selectors/#relational"><code>:has()</code></a> which would allow you to select the ancestor of an element matching another CSS selector, but despite being in the spec for years there is currently <a href="http://caniuse.com/#feat=css-has">zero browser support for <code>:has()</code></a>.</p>
+<p>Sometimes, especially when working with HTML you don’t have the ability to alter, it would be nice to be able to select an ancestor of another element for styling. While CSS is unable to work in these situations, both JavaScript and XPath are able to achieve this.</p>
+<h2 id="parts-required">Parts Required</h2>
+<p>There are two ways you can search for ancestors of elements using JavaScript in the browser, <code>document.closest()</code> for matching CSS selectors, or <code>document.evaluate()</code> to evaluate an XPath selector that selects the ancestor of another element.</p>
+<h3 id="js-tests">JS Tests</h3>
+<p>Closest ancestor matching CSS Selector:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">element</span>.<span class="at">closest</span>(test)</code></pre></div>
+<p>Selecting and element that contains another CSS selector:</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">element</span>.<span class="at">querySelector</span>(test)</code></pre></div>
+<h2 id="syntax-examples">Syntax Examples</h2>
+<h2 id="selectory">Selectory</h2>
+<p>Find first ancestor of <code>id=&quot;demo&quot;</code> with <code>class=&quot;target&quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="at">[test=</span><span class="st">&quot;document.querySelector(&#39;#demo&#39;).closest(test) == this&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="xpathy">Xpathy</h2>
+<p>Find all ancestors of <code>id=&quot;demo&quot;</code> that have <code>class=&quot;target&quot;</code>:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="at">[xpath=</span><span class="st">&quot;//*[@id=&#39;demo&#39;]/ancestor::*[@class=&#39;target&#39;]&quot;</span><span class="at">]</span> <span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="xpath-selector-mixin">XPath Selector Mixin</h2>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">xpath</span>(<span class="st">&#39;//*[@id=&quot;demo&quot;]/ancestor::*[@class=&quot;target&quot;]&#39;</span><span class="op">,</span> <span class="vs">`</span>
+<span class="vs">  background: lime;</span>
+<span class="vs">`</span>)</code></pre></div>
+<h2 id="plugins-capable">Plugins Capable</h2>
+<ul>
+<li><a href="../plugins/eqcss.html">EQCSS</a></li>
+<li><a href="../plugins/selectory.html">Selectory</a></li>
+<li><a href="../plugins/xpathy.html">XPathy</a></li>
+<li><a href="../plugins/reprocss.html">reproCSS</a></li>
+<li><a href="../plugins/ancestor-selector-mixin.html">Ancestor Selector Mixin</a></li>
+<li><a href="../plugins/closest-selector-mixin.html">Closest Selector Mixin</a></li>
+<li><a href="../plugins/scoped-eval-mixin.html">Scoped Eval Mixin</a></li>
+<li><a href="../plugins/xpath-selector-mixin.html">XPath Selector Mixin</a></li>
+</ul>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="https://codepen.io/tomhodgins/pen/OmEEaK">Selecting the Parent and Ancestor of an element using JavaScript</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/gRQqGB">Closest Selector Mixin demo with reproCSS</a></li>
+</ul>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest"><code>Element.closest()</code> on MDN</a></li>
+<li><a href="http://caniuse.com/#feat=element-closest">CanIUse browser support for <code>Element.closest()</code></a></li>
+<li><a href="https://www.w3schools.com/xml/xpath_axes.asp">Overview of XPath Axes</a></li>
+<li><a href="https://www.w3.org/TR/xpath-30/#axes">Axes in the XPath spec</a></li>
+</ul>
+<nav>
+  <a href=/>Home</a>
+  <a href=/techniques>Techniques</a>
+  <a href=/plugins>Plugins</a>
+  <a href=/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>
