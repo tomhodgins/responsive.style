@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="useful-tests-for-js-powered-styling">Useful Tests for JS-Powered Styling</h1>
+<p>This page is filled with JavaScript-based tests that are useful for styling, whether it's trying to target selectors CSS can't normally reach, or trying to use element queries or container queries check out the list below for tests that can be used with the CSS reprocessors like <a href="https://github.com/eqcss/eqcss">EQCSS</a>, <a href="https://github.com/tomhodgins/js-in-css">JS-in-CSS</a>, <a href="https://github.com/tomhodgins/cssplus#selectory-a-selector-resolver">Selectory</a>, <a href="https://github.com/tomhodgins/reprocss">reproCSS</a>, and more!</p>
+<h3 id="width-based-tests">Width-based tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&lt;</span> <span class="dv">500</span>  <span class="co">// less than 500px wide</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&lt;=</span> <span class="dv">500</span> <span class="co">// less or equal to 500px wide</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">==</span> <span class="dv">500</span> <span class="co">// 500px wide</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&gt;=</span> <span class="dv">500</span> <span class="co">// greater or equal to 500px wide</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&gt;</span> <span class="dv">500</span>  <span class="co">// greater than 500px wide</span></code></pre></div>
+<h3 id="height-based-tests">Height-based tests</h3>
+<pre><code>el =&gt; el.offsetHeight &lt; 500  // less than 500px tall
+el =&gt; el.offsetHeight &lt;= 500 // less or equal to 500px tall
+el =&gt; el.offsetHeight == 500 // 500px tall
+el =&gt; el.offsetHeight &gt;= 500 // greater or equal to 500px tall
+el =&gt; el.offsetHeight &gt; 500  // greater than 500px tall</code></pre>
+<h3 id="text-length-tests">Text Length tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">value</span>.<span class="at">length</span> <span class="op">&lt;</span> <span class="dv">5</span>  <span class="co">// less than 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">value</span>.<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">5</span> <span class="co">// less or equal to 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">value</span>.<span class="at">length</span> <span class="op">==</span> <span class="dv">5</span> <span class="co">// 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">value</span>.<span class="at">length</span> <span class="op">&gt;=</span> <span class="dv">5</span> <span class="co">// greater or equal to 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">value</span>.<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">5</span>  <span class="co">// greater than 5 characters</span>
+
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">textContent</span>.<span class="at">length</span> <span class="op">&lt;</span> <span class="dv">5</span>  <span class="co">// less than 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">textContent</span>.<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">5</span> <span class="co">// less or equal to 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">textContent</span>.<span class="at">length</span> <span class="op">==</span> <span class="dv">5</span> <span class="co">// 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">textContent</span>.<span class="at">length</span> <span class="op">&gt;=</span> <span class="dv">5</span> <span class="co">// greater or equal to 5 characters</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">textContent</span>.<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">5</span>  <span class="co">// greater than 5 characters</span></code></pre></div>
+<h3 id="children-based-tests">Children-based tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">children</span>.<span class="at">length</span> <span class="op">&lt;</span> <span class="dv">5</span>  <span class="co">// less than 5 children</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">children</span>.<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">5</span> <span class="co">// less or equal to 5 children</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">children</span>.<span class="at">length</span> <span class="op">==</span> <span class="dv">5</span> <span class="co">// 5 children</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">children</span>.<span class="at">length</span> <span class="op">&gt;=</span> <span class="dv">5</span> <span class="co">// greater or equal to 5 children</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="va">children</span>.<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">5</span>  <span class="co">// greater than 5 children</span></code></pre></div>
+<h3 id="scroll-based-tests">Scroll-based tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollLeft</span> <span class="op">&lt;</span> <span class="dv">50</span>  <span class="co">// less than 50px scrolled right</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollLeft</span> <span class="op">&lt;=</span> <span class="dv">50</span> <span class="co">// less or equal to 50px scrolled right</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollLeft</span> <span class="op">==</span> <span class="dv">50</span> <span class="co">// 50px scrolled right</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollLeft</span> <span class="op">&gt;=</span> <span class="dv">50</span> <span class="co">// greater or equal to 50px scrolled right</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollLeft</span> <span class="op">&gt;</span> <span class="dv">50</span>  <span class="co">// greater than 50px scrolled right</span>
+
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollTop</span> <span class="op">&lt;</span> <span class="dv">50</span>  <span class="co">// less than 50px scrolled down</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollTop</span> <span class="op">&lt;=</span> <span class="dv">50</span> <span class="co">// less or equal to 50px scrolled down</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollTop</span> <span class="op">==</span> <span class="dv">50</span> <span class="co">// 50px scrolled down</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollTop</span> <span class="op">&gt;=</span> <span class="dv">50</span> <span class="co">// greater or equal to 50px scrolled down</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">scrollTop</span> <span class="op">&gt;</span> <span class="dv">50</span>  <span class="co">// greater than 50px scrolled down</span></code></pre></div>
+<h3 id="aspect-ratio-based-tests">Aspect-ratio-based tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span>/<span class="va">el</span>.<span class="at">offsetHeight</span> <span class="op">&lt;</span> <span class="dv">16</span>/<span class="dv">9</span>  <span class="co">// less than 16/9</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span>/<span class="va">el</span>.<span class="at">offsetHeight</span> <span class="op">&lt;=</span> <span class="dv">16</span>/<span class="dv">9</span> <span class="co">// less or equal to 16/9</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span>/<span class="va">el</span>.<span class="at">offsetHeight</span> <span class="op">==</span> <span class="dv">16</span>/<span class="dv">9</span> <span class="co">// 16/9</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span>/<span class="va">el</span>.<span class="at">offsetHeight</span> <span class="op">&gt;=</span> <span class="dv">16</span>/<span class="dv">9</span> <span class="co">// greater or equal to 16/9</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span>/<span class="va">el</span>.<span class="at">offsetHeight</span> <span class="op">&lt;</span> <span class="dv">16</span>/<span class="dv">9</span>  <span class="co">// greater than 16/9</span></code></pre></div>
+<h3 id="orientation-based-tests">Orientation-based tests</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&lt;</span> <span class="va">el</span>.<span class="at">offsetHeight</span>  <span class="co">// portrait orientation</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">==</span> <span class="va">el</span>.<span class="at">offsetHeight</span> <span class="co">// square orientation</span>
+el <span class="op">=&gt;</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&gt;</span> <span class="va">el</span>.<span class="at">offsetHeight</span>  <span class="co">// landscape orientation</span></code></pre></div>
+<h2 id="selectors">Selectors</h2>
+<h3 id="parent-of-el">Parent of <code>el</code></h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">el</span>.<span class="at">parentElement</span></code></pre></div>
+<h3 id="closest-matching-ancestor-of-el">Closest Matching Ancestor of <code>el</code></h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">el</span>.<span class="at">closest</span>(<span class="st">&#39;selector&#39;</span>)</code></pre></div>
+<h3 id="previous-sibling-of-el">Previous Sibling of el</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">el</span>.<span class="at">previousElementSibling</span></code></pre></div>
+<h3 id="el-contains-selector"><code>el</code> Contains Selector</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">el</span>.<span class="at">querySelector</span>(<span class="st">&#39;selector&#39;</span>)</code></pre></div>
+<h2 id="demos">Demos</h2>
+<h3 id="using-eqcss">Using EQCSS</h3>
+<p data-height="300" data-theme-id="26478" data-slug-hash="NrxqPo" data-default-tab="html,result" data-user="tomhodgins" data-embed-version="2" data-pen-title="Element Query Demos!!!" data-editable="true" class="codepen">
+See the Pen <a href="https://codepen.io/tomhodgins/pen/NrxqPo/">Element Query Demos!!!</a> by Tommy Hodgins (<a href="https://codepen.io/tomhodgins"><span class="citation" data-cites="tomhodgins">@tomhodgins</span></a>) on <a href="https://codepen.io">CodePen</a>.
+</p>
+<h3 id="using-selectory">Using Selectory</h3>
+<p data-height="300" data-theme-id="26478" data-slug-hash="ZKmXXw" data-default-tab="html,result" data-user="tomhodgins" data-embed-version="2" data-pen-title="Element Queries with CSSplus/Selectory" data-editable="true" class="codepen">
+See the Pen <a href="https://codepen.io/tomhodgins/pen/ZKmXXw/">Element Queries with CSSplus/Selectory</a> by Tommy Hodgins (<a href="https://codepen.io/tomhodgins"><span class="citation" data-cites="tomhodgins">@tomhodgins</span></a>) on <a href="https://codepen.io">CodePen</a>.
+</p>
+<h3 id="using-reprocss">Using reproCSS</h3>
+<p data-height="300" data-theme-id="26478" data-slug-hash="EXoOQQ" data-default-tab="html,result" data-user="tomhodgins" data-embed-version="2" data-pen-title="Element Queries with reproCSS" data-editable="true" class="codepen">
+See the Pen <a href="https://codepen.io/tomhodgins/pen/EXoOQQ/">Element Queries with reproCSS</a> by Tommy Hodgins (<a href="https://codepen.io/tomhodgins"><span class="citation" data-cites="tomhodgins">@tomhodgins</span></a>) on <a href="https://codepen.io">CodePen</a>.
+</p>
+<h3 id="using-js-in-css">Using JS-in-CSS</h3>
+<p data-height="300" data-theme-id="26478" data-slug-hash="bYgLmQ" data-default-tab="html,result" data-user="tomhodgins" data-embed-version="2" data-pen-title="Container Query Demo using JS-in-CSS" data-editable="true" class="codepen">
+See the Pen <a href="https://codepen.io/tomhodgins/pen/bYgLmQ/">Container Query Demo using JS-in-CSS</a> by Tommy Hodgins (<a href="https://codepen.io/tomhodgins"><span class="citation" data-cites="tomhodgins">@tomhodgins</span></a>) on <a href="https://codepen.io">CodePen</a>.
+</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+<nav>
+  <a href=//tomhodgins.github.io/responsive.style/>Home</a>
+  <a href=//tomhodgins.github.io/responsive.style/techniques>Techniques</a>
+  <a href=//tomhodgins.github.io/responsive.style/plugins>Plugins</a>
+  <a href=//tomhodgins.github.io/responsive.style/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

@@ -11,18 +11,18 @@ JavaScript can listen to mouse events, as well as keep track of the current curs
 Exposing the mouse or touchscreen cursor location as CSS variables named `cursorX` and `cursorY`:
 
 ```javascript
-  function updateCursor(e) {
+function updateCursor(e) {
 
-    var x = e.clientX || e.touches[0].clientX
-    var y = e.clientY || e.touches[0].clientY
+  var x = e.clientX || e.touches[0].clientX
+  var y = e.clientY || e.touches[0].clientY
 
-    document.documentElement.style.setProperty('--cursorX', x)
-    document.documentElement.style.setProperty('--cursorY', y)
+  document.documentElement.style.setProperty('--cursorX', x)
+  document.documentElement.style.setProperty('--cursorY', y)
 
-  }
+}
 
-  window.addEventListener('mousemove', updateCursor)
-  window.addEventListener('touchmove', updateCursor)
+window.addEventListener('mousemove', updateCursor)
+window.addEventListener('touchmove', updateCursor)
 ```
 
 ## Plugins Capable

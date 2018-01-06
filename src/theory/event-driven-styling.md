@@ -22,7 +22,6 @@ There are a number of ways that JavaScript and CSS can interact, and that means 
 - Takes full advantage of what JS has to offer
 - State may be managed in JS already, in which case you use JavaScript's state for styling
 
-
 ## Best practices for using virtual stylesheets
 
 - use as many different virtual stylesheets as you need

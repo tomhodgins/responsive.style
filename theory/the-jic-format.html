@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="the-.jic-format">The <code>.jic</code> Format</h1>
+<p>If you haven't heard about JS-in-CSS or JIC stylesheets before, the idea is very simple: treat a CSS stylesheet like a JavaScript template string. If you've never written a JIC stylesheet before, they can be a <em>lot of fun!</em></p>
+<p>This document is intended for developers who might need to work with <code>.jic</code> files, or build tools to read/write them. For a more author-friendly explanation of what you can do <em>with</em> JIC stylesheets, <a href="what-is-a-jic-stylesheet.html">click here</a></p>
+<p>Here's what a <code>.jic</code> file is all about:</p>
+<ul>
+<li>a CSS stylesheet</li>
+<li>includes JS interpolation anywhere via <code>${}</code></li>
+<li>saved with a <code>.jic</code> extension</li>
+<li>loaded by JavaScript</li>
+<li>interpreted as a JavaScript template string</li>
+<li>output as CSS</li>
+</ul>
+<h3 id="example">Example</h3>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">html<span class="dv">:before</span> <span class="kw">{</span>
+  <span class="kw">content:</span> <span class="st">&#39;${innerWidth} x ${innerHeight}&#39;</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="writing-jic-stylesheets">Writing JIC Stylesheets</h2>
+<p>Start with an empty file, use CSS syntax highlighting and write global styles anywhere. Leverage JavaScript interpolation anywhere using <code>${}</code>. Everything inside the brackets is JavaScript, so you're able to use JavaScript logic to:</p>
+<ul>
+<li>toggle the inclusion or exclusion of CSS text (could be a value, property, rule, or even a whole stylesheet)</li>
+<li>use JavaScript variables anywhere in CSS</li>
+<li>use JavaScript's awareness of the browser and DOM when styling</li>
+<li>call JavaScript functions and include the returned result in the stylesheet</li>
+</ul>
+<h3 id="examples-of-jic-stylesheets">Examples of JIC stylesheets</h3>
+<ul>
+<li><a href="https://codepen.io/tomhodgins/pen/bYgLmQ">Container Queries using the JS-in-CSS pattern</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/dZYRdv">3 Levels of style scoping</a></li>
+<li><a href="https://gist.github.com/tomhodgins/94fc1dc73ec0fc9d3dfc6722192924a8#file-input-css-css">JIC stylesheet (from Qompile)</a></li>
+</ul>
+<h2 id="extending-jic-stylesheets-with-mixins">Extending JIC stylesheets with mixins</h2>
+<p>Mixins for <code>.jic</code> stylesheets can be written in pure JavaScript. The most basic mixin, which simply returns a bit of CSS, could be written like this:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">border</span>(selector) <span class="op">{</span>
+  <span class="cf">return</span> <span class="vs">`</span><span class="sc">${</span>selector<span class="sc">}</span><span class="vs"> { border: 1px solid red; }`</span>
+<span class="op">}</span></code></pre></div>
+<p>If you were writing a JIC stylesheet and that function was available to you at the time of interpolation, you could make use of it anywhere inside your JIC stylesheet with <code>${border()}</code>, here in this example we'll add a red border to every element using the <code>*</code> universal selector:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{border</span><span class="er">(&#39;*&#39;)}</span></code></pre></div>
+<p>Which when interpolated, should turn into:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">* <span class="kw">{</span> <span class="kw">border:</span> <span class="dt">1px</span> <span class="dt">solid</span> <span class="dt">red</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<h4 id="use-of-this-in-mixins">Use of <code>$this</code> in mixins</h4>
+<p>The <code>$this</code> keyword has no special meaning in a JIC file, but many JIC-compatible mixins make use of a <code>$this</code> keyword in their own internal stylesheets as a placeholder for each individual element in case of style scoping. Not every mixin will involve style scoping, but if you are creating a mixin that handles a stylesheet that will apply to individual elements matching a selector or test, choosing to use <code>$this</code> as a placeholder for each element in your internal stylesheet can be a helpful shorthand.</p>
+<h3 id="examples-of-jic-mixins">Examples of JIC mixins</h3>
+<ul>
+<li><a href="https://gist.github.com/tomhodgins/fc42b334beaafc75a271b1ef7c8e33ee">Container Queries mixin</a></li>
+<li><a href="https://github.com/tomhodgins/cascading-js-variables">Cascading JS Variables</a></li>
+<li><a href="https://codepen.io/tomhodgins/pen/wqRzmZ">Element-based units mixin (<code>ew</code>, <code>eh</code>, <code>emin</code>, <code>emax</code>)</a></li>
+<li><a href="https://github.com/tomhodgins/respec">respec</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss#ancestor-selector-mixin">reproCSS/ancestor-selector</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/aspect-ratio.js">reproCSS/aspect-ratio</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/auto-expand.js">reproCSS/auto-expand</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/closest-selector.js">reproCSS/closest-selector</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/container-queries.js">reproCSS/container-queries</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss#elder-selector-mixin">reproCSS/elder-selector</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/parent-selector.js">reproCSS/parent-selector</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/prev-selector.js">reproCSS/prev-selector</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/scoped-eval.js">reproCSS/scoped-eval</a></li>
+<li><a href="https://github.com/tomhodgins/reprocss/blob/master/mixins/xpath-selector.js">reproCSS/xpath-selector</a></li>
+</ul>
+<h2 id="reading-js-in-css-stylesheets">Reading JS-in-CSS Stylesheets</h2>
+<p>In order for a JIC stylesheet to be read by JavaScript it must first exist as a regular JavaScript string. (This allows you to include JavaScript interpolation in your string, but control the exact moment at which it is evaluated by Javascript).</p>
+<p>To turn a regular string into a JS template string, you can <code>return</code> the original string as a JS template string from a function.</p>
+<pre><code>new Function(&#39;return `&#39; + jic + &#39;`&#39;)</code></pre>
+<p>When this function is evaluated, the JIC stylesheet will be be interpolated, all of the JavaScript parts will be evaluated and the result will be a pure CSS stylesheet that can be attached to the DOM, added directly to the CSSOM by JavaScript, or output as a regular CSS file.</p>
+<h3 id="example-jic-plugins">Example JIC plugins</h3>
+<p>There are a number of CSS reprocessors that can all make use of JIC-formatted stylesheets. Now that there's a common file format for them, compatibility between these plugins and their mixins should increase in the future, as well as the number of JIC-aware plugins increasing too.</p>
+<h4 id="the-js-in-css-pattern">The JS-in-CSS Pattern</h4>
+<p>The <a href="https://github.com/tomhodgins/js-in-css">JS-in-CSS</a> pattern relies on JIC-formatted stylesheets being present inline in JavaScript. It's compatible with all JIC mixins, and the simplest way to get started with JIC-formatted stylesheets.</p>
+<h4 id="jic.js">JIC.js</h4>
+<p>You can use <a href="https://gist.github.com/tomhodgins/b8697d6599b2cda60bb7e77e5f2387fe">jic.js</a> to load JIC-formatted stylesheets from inside <code>&lt;style&gt;</code> tags, and from external files using <code>&lt;link&gt;</code> tags. Compatible with all JIC mixins.</p>
+<h4 id="reprocss">reproCSS</h4>
+<p><a href="https://github.com/tomhodgins/reprocss">reproCSS</a> offers a fallback implementation of JS template strings that's weaker and simpler than the full range of what you can nest inside real JS template strings, but with broader browser support than JS template strings going back to IE10. Compatible with all JIC mixins.</p>
+<h4 id="qompile">Qompile</h4>
+<p>Qompile uses JIC stylesheets. With minor modifications, can be made to work with any JIC mixin.</p>
+<nav>
+  <a href=//tomhodgins.github.io/responsive.style/>Home</a>
+  <a href=//tomhodgins.github.io/responsive.style/techniques>Techniques</a>
+  <a href=//tomhodgins.github.io/responsive.style/plugins>Plugins</a>
+  <a href=//tomhodgins.github.io/responsive.style/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>

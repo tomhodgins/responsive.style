@@ -56,18 +56,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2 id="parts-required">Parts Required</h2>
 <h3 id="js-tests">JS Tests</h3>
 <p>Exposing the mouse or touchscreen cursor location as CSS variables named <code>cursorX</code> and <code>cursorY</code>:</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">  <span class="kw">function</span> <span class="at">updateCursor</span>(e) <span class="op">{</span>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">updateCursor</span>(e) <span class="op">{</span>
 
-    <span class="kw">var</span> x <span class="op">=</span> <span class="va">e</span>.<span class="at">clientX</span> <span class="op">||</span> <span class="va">e</span>.<span class="at">touches</span>[<span class="dv">0</span>].<span class="at">clientX</span>
-    <span class="kw">var</span> y <span class="op">=</span> <span class="va">e</span>.<span class="at">clientY</span> <span class="op">||</span> <span class="va">e</span>.<span class="at">touches</span>[<span class="dv">0</span>].<span class="at">clientY</span>
+  <span class="kw">var</span> x <span class="op">=</span> <span class="va">e</span>.<span class="at">clientX</span> <span class="op">||</span> <span class="va">e</span>.<span class="at">touches</span>[<span class="dv">0</span>].<span class="at">clientX</span>
+  <span class="kw">var</span> y <span class="op">=</span> <span class="va">e</span>.<span class="at">clientY</span> <span class="op">||</span> <span class="va">e</span>.<span class="at">touches</span>[<span class="dv">0</span>].<span class="at">clientY</span>
 
-    <span class="va">document</span>.<span class="va">documentElement</span>.<span class="va">style</span>.<span class="at">setProperty</span>(<span class="st">&#39;--cursorX&#39;</span><span class="op">,</span> x)
-    <span class="va">document</span>.<span class="va">documentElement</span>.<span class="va">style</span>.<span class="at">setProperty</span>(<span class="st">&#39;--cursorY&#39;</span><span class="op">,</span> y)
+  <span class="va">document</span>.<span class="va">documentElement</span>.<span class="va">style</span>.<span class="at">setProperty</span>(<span class="st">&#39;--cursorX&#39;</span><span class="op">,</span> x)
+  <span class="va">document</span>.<span class="va">documentElement</span>.<span class="va">style</span>.<span class="at">setProperty</span>(<span class="st">&#39;--cursorY&#39;</span><span class="op">,</span> y)
 
-  <span class="op">}</span>
+<span class="op">}</span>
 
-  <span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;mousemove&#39;</span><span class="op">,</span> updateCursor)
-  <span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;touchmove&#39;</span><span class="op">,</span> updateCursor)</code></pre></div>
+<span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;mousemove&#39;</span><span class="op">,</span> updateCursor)
+<span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;touchmove&#39;</span><span class="op">,</span> updateCursor)</code></pre></div>
 <h2 id="plugins-capable">Plugins Capable</h2>
 <ul>
 <li><a href="../plugins/eqcss.html">EQCSS</a></li>

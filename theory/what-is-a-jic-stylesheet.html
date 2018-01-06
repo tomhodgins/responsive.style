@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+  <link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+</head>
+<body>
+<h1 id="what-is-a-jic-stylesheet">What is a JIC Stylesheet?</h1>
+<h2 id="a-format-and-mixin-guideline-for-js-in-css">a format and mixin guideline for JS-in-CSS</h2>
+<p>Everything in a JIC stylesheet revolves around the use of a very special pair of brackets that look like this <code>${}</code>. They open with a <code>${</code>, and close with a <code>}</code>. In a JIC stylesheet everything <em>outside</em> these brackets is CSS, and everything <em>inside</em> these brackets is JavaScript.</p>
+<p>You might think of it as a CSS stylesheet that functions like a JavaScript template string, because in the end that's how it will be interpreted.</p>
+<p>When you combine CSS and JavaScript this way, you are able to leverage the 100% of the features of CSS, <em>and</em> add 100% of the features of JavaScript to it. There are many ways CSS and JavaScript can communicate, using a JIC-formatted stylesheet is one of the most flexible and succinct syntaxes for expressing your styles. And makes it very easy to extend the features of CSS by writing simple JavaScript functions called called 'JIC mixins'.</p>
+<p>To show you what this idea is all, about let's look at a small example. Here is a JIC stylesheet that displays the browser's viewport dimensions as CSS content for a pseudo-element on the HTML element.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">html<span class="dv">:before</span> <span class="kw">{</span>
+  <span class="kw">content:</span> <span class="st">&#39;${innerWidth} x ${innerHeight}&#39;</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>When this JIC stylesheet is interpreted, the content being displayed will be the values of whatever the inner width and height of the browser are at that exact moment.</p>
+<p>There are a few ways expressing JavaScript and CSS together can be helpful, let's look at four main ways to use JavaScript to your advantage when writing a JIC stylesheet.</p>
+<h2 id="how-to-write-a-jic-stylesheet">How to write a JIC stylesheet</h2>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* Inline Values */</span>
+<span class="fl">.username</span><span class="dv">:before</span> <span class="kw">{</span> <span class="kw">content:</span> <span class="st">&#39;${firstName}&#39;</span><span class="kw">;</span> <span class="kw">}</span>
+
+<span class="co">/* JavaScript One-liners */</span>
+body <span class="kw">{</span> <span class="kw">background:</span> ${Math<span class="dt">.</span>random() &gt; <span class="dt">.5</span> ? <span class="st">&#39;red&#39;</span> : <span class="st">&#39;orange&#39;</span><span class="kw">}</span>; }
+
+<span class="co">/* Nested Stylesheets */</span>
+$<span class="kw">{</span><span class="er">someValue</span> <span class="er">?</span> <span class="er">`</span>
+  
+  <span class="co">/* I&#39;m also a JIC stylesheet */</span>
+
+<span class="er">`</span> <span class="er">:</span> <span class="er">&#39;&#39;</span><span class="kw">}</span>
+
+<span class="co">/* Calling Functions */</span>
+$<span class="kw">{</span><span class="er">helper(&#39;.example&#39;)</span><span class="kw">}</span></code></pre></div>
+<p>Let's look at a few ways these different types of interactions can be useful.</p>
+<h3 id="inline-values">Inline Values</h3>
+<p>When you use the special brackets in a JIC stylesheet you are able to replace any variable name the browser is aware of and have its value output in the resulting CSS. While the example above used the brackets inside of what becomes a CSS property value, you can use the brackets anywhere in a JIC stylesheet. It's just as easy for you to replace part of a property name, selector, or even inside of media query.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* As a property name */</span>
+<span class="fl">.example</span> <span class="kw">{</span>
+  <span class="er">${prefix</span><span class="kw">}</span>appearance<span class="dv">:</span> none;
+}
+
+<span class="co">/* Inside a selector */</span>
+<span class="fl">.</span>$<span class="kw">{</span><span class="er">teamName</span><span class="kw">}</span><span class="fl">.avatar</span> <span class="kw">{</span>
+  <span class="kw">border:</span> <span class="dt">5px</span> <span class="dt">solid</span> <span class="dt">red</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="co">/* Inside of a media query */</span>
+<span class="dv">@media</span> <span class="dv">(min-width: </span><span class="er">${desktop}) {</span>
+<span class="dv">  </span><span class="dt">.</span><span class="er">sidebar</span><span class="dv"> </span><span class="er">{</span>
+<span class="dv">    </span><span class="er">display:</span><span class="dv"> </span><span class="er">block;</span>
+<span class="dv">  </span><span class="er">}</span>
+<span class="er">}</span></code></pre></div>
+<h3 id="javascript-one-liners">JavaScript One-liners</h3>
+<p>If using JavaScript variables anywhere inside CSS stylesheets is exciting, it's just as easy to use JavaScript expressions in your stylesheets as well. This allows you to use any values JavaScript is aware of (or can measure) anywhere in your styles.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* Reading properties from the DOM */</span>
+<span class="fl">#demoVideo</span> <span class="kw">{</span>
+  <span class="kw">width:</span> <span class="dt">100%</span><span class="kw">;</span>
+  <span class="kw">height:</span> calc(${demoVideo<span class="dt">.</span>offsetWidth<span class="kw">}</span>px / (16/9));
+}
+
+<span class="co">/* Random numbers */</span>
+body <span class="kw">{</span>
+  <span class="kw">background:</span> <span class="dt">hsl(</span>${Math<span class="dt">.</span>random(<span class="dt">)</span> * <span class="dt">360</span><span class="kw">}</span>, 75%, 50%)
+}</code></pre></div>
+<h3 id="nested-stylesheets">Nested Stylesheets</h3>
+<p>One really useful feature of JavaScript template strings is that they can contain other JS template strings inside of the special brackets. Something like this would be invisible to our final CSS and just behave like we had only written <code>html { background: lime; }</code>.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span> <span class="er">`</span> <span class="er">html</span> <span class="er">{</span> <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span> <span class="kw">}</span> ` }</code></pre></div>
+<p>This becomes a very easy place for us to add a bit of JavaScript logic to toggle whether we should include a part of a stylesheet inside of a larger stylesheet. The following two examples are equivalent:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">(true)</span> <span class="er">?</span> <span class="er">`</span><span class="co">/* JIC stylesheet */</span><span class="er">`</span> <span class="er">:</span> <span class="er">&#39;&#39;</span><span class="kw">}</span>
+
+$<span class="kw">{</span><span class="er">(true)</span> <span class="er">&amp;&amp;</span> <span class="er">`</span><span class="co">/* JIC stylesheet */</span><span class="er">`</span> <span class="er">||</span> <span class="er">&#39;&#39;</span><span class="kw">}</span></code></pre></div>
+<p>If the first expression is <code>true</code>, the nested stylesheet will be included in the original JIC stylesheet, otherwise nothing will be added.</p>
+<h3 id="calling-functions">Calling Functions</h3>
+<p>Another helpful way to use CSS and JavaScript together is to use a JavaScript function as a helper, either for reducing the amount of CSS you need to write, for simplifying your stylesheets, re-using similar logic in multiple places or stylesheets, or just to work with a nicer interface when you're writing styles. It's so easy to create JavaScript functions for almost anything, so being able to use them anywhere in JIC stylesheets means there's no end to the possibilities of how and where helper functions can be used. Here's an example of a helper function that clamps a scalable value between a minimum and maximum value, called a 'number clamp':</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">clamp</span>(min<span class="op">,</span> mid<span class="op">,</span> max) <span class="op">{</span>
+  
+  <span class="cf">return</span> <span class="va">Math</span>.<span class="at">min</span>(<span class="va">Math</span>.<span class="at">max</span>(min<span class="op">,</span> mid)<span class="op">,</span> max)
+
+<span class="op">}</span></code></pre></div>
+<p>This would let us write a value in our JIC stylesheet like this:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">h1 <span class="kw">{</span>
+  <span class="kw">font-size:</span> ${clamp(<span class="dt">20</span>, header<span class="dt">.</span>offsetWidth/<span class="dt">20</span>, <span class="dt">75</span>)<span class="kw">}</span>px;
+}</code></pre></div>
+<h3 id="jic-mixins">JIC Mixins</h3>
+<p>A 'JIC Mixin' is a JavaScript function that usually takes a CSS selector, and optionally a CSS rule or CSS stylesheet to process.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="at">mixin</span>(selector [<span class="op">,</span> …any other arguments here])
+
+<span class="at">ruleMixin</span>(selector<span class="op">,</span> […any other arguments here<span class="op">,</span>] rule)
+
+<span class="at">stylesheetMixin</span>(selector<span class="op">,</span> […any other arguments here<span class="op">,</span>] stylesheet)</code></pre></div>
+<h4 id="simple-mixins">Simple Mixins</h4>
+<p>The smallest type of mixin is a function that usually takes a CSS selector, plus any additional arguments the function needs.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">aspectRatio(&#39;iframe&#39;,</span> <span class="er">16/9)</span><span class="kw">}</span></code></pre></div>
+<p>There's no rule or stylesheet being passed in, but in this case the <code>aspectRatio()</code> function is able to query the document for all iframe tags that match the selector, and based on their current width, assign a height value using the ratio supplied to the function in the second argument.</p>
+<p>This type of mixin returns one or more CSS rules to the original JIC stylesheet.</p>
+<h4 id="rule-mixins">Rule Mixins</h4>
+<p>A rule-level mixin usually takes a CSS selector, plus a CSS rule to apply to elements matching that selector, plus any additional arguments the function needs.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">closest(&#39;.target&#39;,</span> <span class="er">&#39;.ancestor&#39;,</span> <span class="er">`</span>
+
+  <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+
+<span class="er">`)</span><span class="kw">}</span></code></pre></div>
+<p>In this case we're using a JavaScript function inside our special brackets, and containing more CSS inside of it. It doesn't take up much more space than a CSS selector would in our CSS stylesheet, it's just expressed in a different language.</p>
+<p>Our example here will look for all elements in the document with a class of &quot;target&quot;, and looks at the elements containing it. If it finds an ancestor element with a class of &quot;ancestor&quot;, it will apply the CSS rule given as the last argument which will make the background of that element green.</p>
+<p>A rule mixin returns one or more CSS rules to the original JIC stylesheet, usually formatted like this.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">selector</span><span class="kw">}</span> <span class="kw">{</span> <span class="er">${rule</span><span class="kw">}</span> }</code></pre></div>
+<h4 id="stylesheet-mixins">Stylesheet Mixins</h4>
+<p>A stylesheet-level mixin usually takes a CSS selector, plus a stylesheet (often with <code>$this</code> used as a placeholder for each matching element), plus any additional arguments the function needs.</p>
+<p>You can think of both the rule-level mixins and the stylesheet-level mixins kind of like the 'Nested Stylesheet' example above, where the JS logic required to toggle the stylesheet is too long to write in the JIC stylesheet itself (or where you want to re-use the same functionality).</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">containerQuery(&#39;div&#39;,</span> <span class="er">el</span> <span class="er">=&gt;</span> <span class="er">el.offsetWidth</span> <span class="er">&gt;</span> <span class="er">500,</span> <span class="er">`</span>
+  
+  <span class="er">$this</span> <span class="er">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+  $this <span class="fl">.button</span> <span class="kw">{</span>
+    <span class="kw">font-size:</span> <span class="dt">20pt</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+`)}</code></pre></div>
+<p>In this example we have a container query plugin that is looking for every DIV element in the document. The second argument is a JavaScript function in arrow notation. It's equivalent to the following function</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span>(el) <span class="op">{</span> <span class="cf">return</span> <span class="va">el</span>.<span class="at">offsetWidth</span> <span class="op">&gt;</span> <span class="dv">500</span> <span class="op">}</span></code></pre></div>
+<p>When we give a function like this an element to test, it will either return <code>true</code> or <code>false</code>, which with this mixin is like a switch to determine whether a copy of the contained CSS stylesheet should be output for that DIV element.</p>
+<p>A stylesheet mixin returns a CSS stylesheet to the original JIC stylesheet</p>
+<h2 id="extending-css">Extending CSS</h2>
+<p>If you're wondering how this approach makes extending CSS flexible, consider what it would take to invent support for a new CSS feature. Let's say we wanted a custom at-rule that would toggle different styles on different days of the week. There's nothing like this currently in CSS, so let's imagine it with a syntax like this:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">@time (day<span class="dv">:</span> friday) <span class="kw">{</span>
+
+  <span class="er">body</span> <span class="er">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+}</code></pre></div>
+<p>In order for your website to be pink on Fridays with other approaches you'd either have to write some JavaScript and CSS separately (maybe using JavaScript to check the date and apply a class to the BODY element on Fridays and then add a rule in your CSS stylesheet for the BODY element when it has your special Friday class. Maybe you could use CSS variables and have JavaScript set the value differently on Fridays.</p>
+<p>Another approach might be to use a CSS preprocessor, where you'd have to teach the preprocessor how to parse CSS, how to parse your custom CSS and extract the information from our <code>@time (unit: value)</code> syntax, we'd have to write a JavaScript plugin to do the transformation, and finally output CSS.</p>
+<p>But consider how flexible our JIC stylesheet is. We can express the same functionality as CSS media queries like this:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@media</span> <span class="dv">(min-width: </span><span class="dt">500px</span><span class="dv">)</span> <span class="dv">{</span>
+
+  body <span class="kw">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+<span class="dv">}</span>
+
+$<span class="kw">{</span><span class="er">innerWidth</span> <span class="er">&gt;=</span> <span class="er">500</span> <span class="er">?</span> <span class="er">`</span>
+
+  <span class="er">body</span> <span class="er">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+` <span class="dv">:</span> <span class="st">&#39;&#39;</span>}</code></pre></div>
+<p>So if we want to add support for our custom <code>@time (day: friday)</code> logic, in JavaScript we only need to test <code>new Date().getDay() === 5</code> to tell <code>true</code> or <code>false</code> if it's Friday.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* Doesn&#39;t work */</span>
+@time (day<span class="dv">:</span> friday) <span class="kw">{</span>
+
+  <span class="er">body</span> <span class="er">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+}
+
+<span class="co">/* Does work! */</span>
+$<span class="kw">{</span><span class="er">new</span> <span class="er">Date().getDay()</span> <span class="er">===</span> <span class="er">5</span> <span class="er">?</span> <span class="er">`</span>
+
+  <span class="er">body</span> <span class="er">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+` <span class="dv">:</span> <span class="st">&#39;&#39;</span>}</code></pre></div>
+<p>And if you'd rather make a simple helper function instead of repeating this kind of logic throughout out stylesheet we can easily create a helper function like this to return <code>true</code> or <code>false</code>, and make what we have write as simple as <code>day(5)</code>.</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">day</span>(number) <span class="op">{</span>
+  
+  <span class="cf">return</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getDay</span>() <span class="op">===</span> number
+
+<span class="op">}</span></code></pre></div>
+<p>Now we can call that from our JIC stylesheet instead.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">day(5)</span> <span class="er">?</span> <span class="er">`</span>
+
+  <span class="er">body</span> <span class="er">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+` <span class="dv">:</span> <span class="st">&#39;&#39;</span>}</code></pre></div>
+<p>If you want to take it further and make it into a JIC mixin rather that include these styles as a Nested Stylesheet, we can make it even cleaner in our JIC stylesheet my writing a function like this:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">time</span>(option<span class="op">,</span> stylesheet) <span class="op">{</span>
+
+  <span class="kw">var</span> day <span class="op">=</span> [<span class="st">&#39;sunday&#39;</span><span class="op">,</span>
+             <span class="st">&#39;monday&#39;</span><span class="op">,</span>
+             <span class="st">&#39;tuesday&#39;</span><span class="op">,</span>
+             <span class="st">&#39;wednesday&#39;</span><span class="op">,</span>
+             <span class="st">&#39;thursday&#39;</span><span class="op">,</span>
+             <span class="st">&#39;friday&#39;</span><span class="op">,</span> 
+             <span class="st">&#39;saturday&#39;</span>]
+
+  <span class="cf">return</span> <span class="va">option</span>.<span class="at">day</span> <span class="op">===</span> day[<span class="kw">new</span> <span class="at">Date</span>().<span class="at">getDay</span>()] <span class="op">?</span> stylesheet : <span class="st">&#39;&#39;</span>
+
+<span class="op">}</span></code></pre></div>
+<p>It's a pretty simple function, we've created a nice interface to use where we can give it an object like <code>{day: 'monday'}</code> as an argument and it will test that name against the current day, returning the stylesheet if it's <code>true</code>. This function allows us to express our custom <code>@time</code> at-rule logic in our JIC stylesheet in a pretty way as:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">time</span> <span class="er">({</span><span class="kw">day:</span> <span class="st">&#39;friday&#39;</span><span class="kw">}</span>, `
+  
+  body <span class="kw">{</span>
+    <span class="kw">background:</span> <span class="dt">lime</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+`)}</code></pre></div>
+<p>It's not quite as simple as <code>@time (day:) {}</code>, but it's kind of amazing how simply we can invent <code>${time ({day:},``)}</code> out of nothing, make it work with only a few lines of standard CSS and standard JavaScript. No new syntax needs to be invented or parsed, and no new features need to be added to either language to make a new abstraction like this work for us in our stylesheet.</p>
+<p>You can play around with a running demo of this here, be sure to update the day of the week to today: <a href="https://codepen.io/tomhodgins/pen/MONbOr">Custom At-Rule with JIC Stylesheet</a></p>
+<p>If you wanted to take it in a different direction, another way you might expose the logic in your stylesheets might be by creating <code>true</code>/<code>false</code> helper functions. Suppose we wanted to add special styles only on Christmas day (December 25th). We could create two helper functions, <code>month()</code> and <code>date()</code>, and chain them together with <code>$$</code> to write logic for a nested stylesheet in a nice readable way:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">month</span>(name) <span class="op">{</span>
+
+  <span class="cf">return</span> [<span class="st">&#39;january&#39;</span><span class="op">,</span>
+          <span class="st">&#39;february&#39;</span><span class="op">,</span>
+          <span class="st">&#39;march&#39;</span><span class="op">,</span>
+          <span class="st">&#39;april&#39;</span><span class="op">,</span>
+          <span class="st">&#39;may&#39;</span><span class="op">,</span>
+          <span class="st">&#39;june&#39;</span><span class="op">,</span>
+          <span class="st">&#39;july&#39;</span><span class="op">,</span>
+          <span class="st">&#39;august&#39;</span><span class="op">,</span>
+          <span class="st">&#39;september&#39;</span><span class="op">,</span>
+          <span class="st">&#39;october&#39;</span><span class="op">,</span>
+          <span class="st">&#39;november&#39;</span><span class="op">,</span>
+          <span class="st">&#39;december&#39;</span>].<span class="at">indexOf</span>(name) <span class="op">===</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getMonth</span>()
+
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">date</span>(number) <span class="op">{</span>
+
+  <span class="cf">return</span> number <span class="op">===</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getDate</span>()
+
+<span class="op">}</span></code></pre></div>
+<p>Then use these in our JIC stylesheet like this:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">month(&#39;december&#39;)</span> <span class="er">&amp;&amp;</span> <span class="er">date(25)</span> <span class="er">?</span> <span class="er">`</span>
+
+  <span class="er">html</span> <span class="er">{</span>
+    <span class="kw">color:</span> <span class="dt">green</span><span class="kw">;</span>
+    <span class="kw">background:</span> <span class="dt">red</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+`<span class="dv">:</span><span class="st">&#39;&#39;</span>}</code></pre></div>
+<p>When both <code>month('december')</code> and <code>date(25)</code> are <code>true</code>, the nested stylesheet will apply. If you had a number of simple <code>true</code>/<code>false</code> functions, you could string them together in infinite ways, allowing you to express precisely what you're trying to target in a succinct way. Without having to define these functions for you, can you imagine what the following stylesheets might do:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">browser(&#39;safari&#39;)</span> <span class="er">&amp;&amp;</span> <span class="er">os(&#39;ios&#39;)</span> <span class="er">?</span> <span class="er">`</span> <span class="er">…</span> <span class="er">`:&#39;&#39;</span><span class="kw">}</span></code></pre></div>
+<p>Or how about:</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">$<span class="kw">{</span><span class="er">officeHours(false)</span> <span class="er">&amp;&amp;</span> <span class="er">user(&#39;frank&#39;)</span> <span class="er">?</span> <span class="er">`</span>
+
+  <span class="er">.support-desk</span> <span class="er">form</span> <span class="er">{</span>
+    <span class="kw">display:</span> <span class="dt">none</span><span class="kw">;</span>
+  <span class="kw">}</span>
+
+`<span class="dv">:</span><span class="st">&#39;&#39;</span>}</code></pre></div>
+<p>The flexibility of JS-in-CSS lets you express yourself in a natural way, and allows you to easily create the abstractions and interfaces you want to work with when you're approaching design. Most importantly, JIS stylesheets let you harness and benefit from all of the CSS and JavaScript knowledge you already have, and lets you put them to work for styling.</p>
+<nav>
+  <a href=//tomhodgins.github.io/responsive.style/>Home</a>
+  <a href=//tomhodgins.github.io/responsive.style/techniques>Techniques</a>
+  <a href=//tomhodgins.github.io/responsive.style/plugins>Plugins</a>
+  <a href=//tomhodgins.github.io/responsive.style/theory>Theory</a>
+</nav>
+
+<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
+</body>
+</html>
