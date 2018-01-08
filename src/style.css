@@ -34,10 +34,30 @@ blockquote {
   line-height: 1.4;
   background: #fef;
   color: #e2e;
-  border-left: 3px solid #e2e;
+  border-left: 3px solid currentColor;
 }
 blockquote:not(pre) code {
   background: #fcf;
+}
+blockquote.level-2 {
+  color: #292;
+  background: #efe;
+}
+blockquote.level-2 a {
+  color: #6c6;
+}
+blockquote.level-2:not(pre) code {
+  background: #cfc;
+}
+blockquote.level-3 {
+  color: #22e;
+  background: #eef;
+}
+blockquote.level-3 a {
+  color: #66f;
+}
+blockquote.level-3:not(pre) code {
+  background: #ccf;
 }
 .quote {
   font-size: 125%;
@@ -190,5 +210,65 @@ dd {
   }
   nav a {
     display: inline-block;
+  }
+}
+
+/* Newsletter Signup */
+.newsletter {
+  overflow: hidden;
+}
+.newsletter input {
+  display: block;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  padding: .5em;
+  margin: 0;
+  font-size: 12pt;
+}
+.newsletter .mc-field-group,
+.newsletter .submit {
+  width: 100%;
+}
+.newsletter .mc-field-group,
+.newsletter .submit {
+  float: left;
+}
+.newsletter input:focus,
+.newsletter input:active {
+  outline: none;
+  border: 2px dashed #292;
+}
+.newsletter input[type=email],
+.newsletter input[type=submit] {
+  margin-top: 1em;
+}
+.newsletter input[type=submit] {
+  background: #292;
+  color: white;
+  cursor: pointer;
+  padding: .5em .75em;
+}
+.newsletter input[type=submit]:focus {
+  border-color: white;
+}
+.newsletter input[type=submit]:hover {
+  background: green;
+}
+.newsletter input[type=submit]:active {
+  background: white;
+  border-color: #292;
+  color: #292;
+}
+@media (min-width: 600px) {
+  .newsletter .mc-field-group {
+    width: calc(100% - 1em - 140px);
+    margin-right: 1em;
+  }
+  .newsletter .submit {
+    width: 140px;
   }
 }
