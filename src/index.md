@@ -8,7 +8,7 @@ This book attempts to document how CSS reprocessing works, provide explanations 
 
 <blockquote class="level-2 newsletter">
   <strong>Get the Latest Techniques</strong>
-  <p>To stay up to date with the latest responsive experiments, techniques, and plugins, signup up for <em>The Responsive Report</em> newsletter:</p>
+  <p>To stay up to date with the latest responsive experiments, techniques, and plugins, signup up for <em>[The Responsive Report](http://responsivereport.com)</em> newsletter:</p>
   <div id="mc_embed_signup">
   <form action="https://tomhodgins.us10.list-manage.com/subscribe/post?u=df899bcfda656bdcc8fb07c20&amp;id=b403c8835c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
   <div id="mc_embed_signup_scroll">
