@@ -1,4 +1,4 @@
---
+---
 title: Style Scoping
 keywords: style scoping, scoped styles, containment, modules, hash, unique identifier, element queries
 ---

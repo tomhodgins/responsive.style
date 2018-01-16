@@ -4,8 +4,8 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 <meta name=author content="Tommy Hodgins">
 <meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
-<meta name="keywords" content="CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
-<title>Responsive Style</title>
+<meta name="keywords" content="XPath, XML path, selector, css selector, selector resolver, parent, self, ancestor, xpath function, xpath axes, CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
+<title>Using XPath to Select Elements - Responsive Style</title>
 <style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -45,8 +45,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </style>
 <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
 <link href="/src/style.css" rel=stylesheet>
-<hr />
-<p>title: Using XPath to Select Elements keywords: XPath, XML path, selector, css selector, selector resolver, parent, self, ancestor, xpath function, xpath axes</p>
+<h1>Using XPath to Select Elements</h1>
 <p>Many CSS authors may not be familiar with XPath so they will most likely be shocked by the expressive power that XPath selectors allow. XPath is a web standard, and defines a way that nodes in an XML document (and elements in an HTML document) can be described like a unix file system, and provides a syntax (and many built-in utility functions) for selecting nodes by writing a selector that resembled a unix file system path. Unlike CSS which is top-down and never backtracks, XPath selectors all you to move up (to parent and ancestor elements), down, and sideways.</p>
 <p>XPath was mainly used for extracting (or transforming) data held in XML documents, or as a way to access information in XML format, and seems to have peaked in usage for that purpose before the popularization of JSON. But recently browsers have gained the ability to evaluate XPath selectors using JavaScript using <code>document.evaluate()</code>, which has support in all modern browsers. It's now possible to use XPath selectors in the browser as a way to select elements for the purposes of styling, and while it will <em>never</em> perform (XPath being evaluated by JavaScript, then styles being set) as fast as native CSS, it <em>does</em> extend the expressive range of selectors to almost everything a CSS author could ever hope for.</p>
 <h2 id="parts-required">Parts Required</h2>
