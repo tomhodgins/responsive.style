@@ -3,8 +3,6 @@ title: Event-Driven Styling
 keywords: event-driven, virtual stylesheets, EDVS, JSinCSS
 ---
 
-# Event-Driven Styling
-
 Writing styles in CSS is kind of like having a representation of what styling should be active in different states within your HTML document. Because events happen inside the browser which are good triggers for styling changes, CSS already responds to some mouse and keyboard events through pseudo-classes like `:hover`, `:focus`, and `:active`.
 
 Other ways CSS responds to events by allowing authors to represent the styling of elements based on state responding to events are things like media queries, which would correspond to the resize events that happen when the browser resizes after it has loaded. In order to continue to style the site well the browser exposes limited information about the browser (the changing `innerWidth` and `innerHeight`) to CSS for the purpose of toggling styles.
