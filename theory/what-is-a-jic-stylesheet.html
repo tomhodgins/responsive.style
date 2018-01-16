@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=author content="Tommy Hodgins">
+<meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
+<meta name="keywords" content="JSinCSS, JIC, file format, hybrid stylesheet, hybrid file format, template string, CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
+<title>What is a JIC Stylesheet? - Responsive Style</title>
+<style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
@@ -42,19 +42,11 @@ code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-  <meta name=keywords content="Responsive, web design, extending, CSS, styling, techniques, rwd, technology, CSS reprocessor, JS-in-CSS, plugins, element queries, style scoping, xpath">
-  <meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
-  
-  <link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-  <link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
-</head>
-<body>
-<h1 id="what-is-a-jic-stylesheet">What is a JIC Stylesheet?</h1>
-<h2 id="a-format-and-mixin-guideline-for-js-in-css">a format and mixin guideline for JS-in-CSS</h2>
+</style>
+<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<h1>What is a JIC Stylesheet?</h1>
+<h2 class=subtitle>a format and mixin guideline for JS-in-CSS</h1>
 <p>Everything in a JIC stylesheet revolves around the use of a very special pair of brackets that look like this <code>${}</code>. They open with a <code>${</code>, and close with a <code>}</code>. In a JIC stylesheet everything <em>outside</em> these brackets is CSS, and everything <em>inside</em> these brackets is JavaScript.</p>
 <p>You might think of it as a CSS stylesheet that functions like a JavaScript template string, because in the end that's how it will be interpreted.</p>
 <p>When you combine CSS and JavaScript this way, you are able to leverage the 100% of the features of CSS, <em>and</em> add 100% of the features of JavaScript to it. There are many ways CSS and JavaScript can communicate, using a JIC-formatted stylesheet is one of the most flexible and succinct syntaxes for expressing your styles. And makes it very easy to extend the features of CSS by writing simple JavaScript functions called called 'JIC mixins'.</p>
@@ -302,7 +294,4 @@ $<span class="kw">{</span><span class="er">new</span> <span class="er">Date().ge
   <a href=//tomhodgins.github.io/responsive.style/plugins>Plugins</a>
   <a href=//tomhodgins.github.io/responsive.style/theory>Theory</a>
 </nav>
-
-<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
-</body>
-</html>
+<footer>by <a href=https://twitter.com/intent/follow/?screen_name=innovati>Tommy Hodgins</a></footer>

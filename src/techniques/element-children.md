@@ -1,4 +1,7 @@
-# Using an Element’s Child Elements
+---
+title: Using an Element’s Child Elements
+keywords: selector, css selector, selector resolver, :has(), contains child, has child, with child, contains selector, has selector, querySelector
+---
 
 No browsers allow you to apply styles to an element based on the number of child elements if contains. The `:has()` selector would in theory, but since it has been Adopted into the CSS spec zero browsers have offered any support for it.
 

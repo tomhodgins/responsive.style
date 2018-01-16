@@ -1,4 +1,7 @@
-# Compare Attribute Values as Numbers
+---
+title: Compare Attribute Values as Numbers
+keywords: selector, css selector, attribute selector, compare numbers, compare value, greater than, less than, equal, element, attribute, value
+---
 
 CSS has attribute selectors that are able to select elements that contain exact matches of values or partial matches of values, but has no way to select elements by comparing the value of an attribute as a number with operators like `greater than`, `less than`, `greater or equal`, or `less or equal`.
 

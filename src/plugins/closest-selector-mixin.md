@@ -1,4 +1,7 @@
-# Closest Selector Mixin
+---
+title: Closest Selector Mixin
+keywords: css, closest element, closest selector, mixin, helper function, plugin
+---
 
 This mixin lets CSS authors apply styles to the nearest element matching a CSS selector to another element matching a given CSS selector. You can use this to find the nearest matching ancestor.
 

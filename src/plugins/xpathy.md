@@ -1,4 +1,7 @@
-# XPathy
+---
+title: XPathy
+keywords: XPath, XPath functions, XML path, XPath axes, XPath selector, selector, selector resolver, mixin, helper function, plugin
+---
 
 **Using XPath Selectors in CSS**
 

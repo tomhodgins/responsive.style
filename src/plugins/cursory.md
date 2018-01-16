@@ -1,4 +1,7 @@
-# Cursory
+---
+title: Cursory
+keywords: cursor, mouse, pointer, mixin, helper function, plugin
+---
 
 **Cursor Position Exposed via CSS Variables**
 

@@ -1,4 +1,7 @@
-# Slinky
+---
+title: Slinky
+keywords: element queries, container queries, scoped stylesheet link tag, meta, media query, mixin, helper function, plugin
+---
 
 **Add JavaScript tests to &lt;link> tags to toggle stylesheets**
 

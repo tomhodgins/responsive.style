@@ -1,4 +1,7 @@
-# Theory
+---
+title: Theory
+keywords: css reprocessor, event-driven, virtual stylesheets, extending css, css polyfill, css plugin, custom syntax
+---
 
 This is a section for the theory about designing element-first, CSS reprocessing, extending CSS via JS, and more…
 

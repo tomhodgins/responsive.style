@@ -1,4 +1,7 @@
-# Varsity
+---
+title: Varsity
+keywords: variables, css variables, width, height, characters, children, value, element, tag, mixin, helper function, plugin
+---
 
 **Properties of Elements Exposed via CSS Variables**
 

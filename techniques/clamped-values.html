@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=author content="Tommy Hodgins">
+<meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
+<meta name="keywords" content="number clamp, clamped, min, max, minimum, maximum, css locks, CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
+<title>Clamped Values - Responsive Style</title>
+<style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
@@ -42,18 +42,10 @@ code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-  <meta name=keywords content="Responsive, web design, extending, CSS, styling, techniques, rwd, technology, CSS reprocessor, JS-in-CSS, plugins, element queries, style scoping, xpath">
-  <meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
-  
-  <link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-  <link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
-</head>
-<body>
-<h1 id="clamped-values">Clamped Values</h1>
+</style>
+<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<h1>Clamped Values</h1>
 <p>CSS has scalable units like <code>%</code>, the viewport-percentage lengths (<code>vw</code>, <code>vh</code>, <code>vmin</code>, and <code>vmax</code>) and even more. Another type of scalable unit not part of CSS that some designers with with is the idea of the <a href="element-based-units.html">element-based unit</a>. With all of these, there might be the desire to ‘clamp’ the value with a certain minimum or maximum value, effectively setting a range for the scalable value that it cannot exceed.</p>
 <p>Thankfully CSS has a <code>minmax()</code> function that acts like a number clamp in some situations, but unfortunately it’s limited to the Grid display module. There are a number of situations when styling websites where being able to clamp scalable units would be helpful, including sizing fonts, setting percentage-based margins and padding, and much more. It’s unfortunate that CSS’s <code>minmax()</code> function is too limited to work in these cases, but there are workarounds. In the future CSS is gaining <code>min()</code> and <code>max()</code> functions which will be able to be used anywhere, and even nested within each other to perform number clamping like <code>min(max(10px, 10vw, 100px))</code>.</p>
 <h2 id="parts-required">Parts Required</h2>
@@ -124,7 +116,4 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <a href=//tomhodgins.github.io/responsive.style/plugins>Plugins</a>
   <a href=//tomhodgins.github.io/responsive.style/theory>Theory</a>
 </nav>
-
-<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
-</body>
-</html>
+<footer>by <a href=https://twitter.com/intent/follow/?screen_name=innovati>Tommy Hodgins</a></footer>

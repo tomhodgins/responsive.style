@@ -1,4 +1,7 @@
-# Using an Element’s Text Characters
+---
+title: Using an Element’s Text Characters
+keywords: element text, text content, characters, number of characters, chars, number of chars, text length, innerHTML
+---
 
 There is now way to use CSS to apply styles to an element based on the number of characters of text it contains - but this is something JavaScript can help us with.
 

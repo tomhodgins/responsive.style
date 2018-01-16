@@ -1,6 +1,7 @@
-# CSS Reprocessor Techniques
-
-## A Fresh Approach to Extending CSS
+---
+title: CSS Reprocessor Techniques
+subtitle: A Fresh Approach to Extending CSS 
+---
 
 This book attempts to document how CSS reprocessing works, provide explanations of the most useful CSS reprocessing techniques, and to offer syntax examples and the pieces required to make these techniques work.
 

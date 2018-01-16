@@ -1,4 +1,7 @@
-# The `.jic` Format
+---
+title: The `.jic` Format
+keywords: JS-in-CSS, JSinCSS, JIC, file format, hybrid stylesheet, hybrid file format, template string
+---
 
 If you haven't heard about JS-in-CSS or JIC stylesheets before, the idea is very simple: treat a CSS stylesheet like a JavaScript template string. If you've never written a JIC stylesheet before, they can be a _lot of fun!_
 

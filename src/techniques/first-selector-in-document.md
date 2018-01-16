@@ -1,4 +1,7 @@
-# Selecting the First Element Matching a Selector
+---
+title: Selecting the First Element Matching a Selector
+keywords: selector, css selector, selector resolver, :first, querySelector, first in document, first selector
+---
 
 CSS has pseudo-classes that allow you to select the first instance of a selector at any level in the DOM like [`:first-of-type()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-of-type), but there is no equivalent in CSS for the ability to select only the first instance of an element matching a selector in the entire document (at any level). This would function more like [`document.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) in JavaScript.
 

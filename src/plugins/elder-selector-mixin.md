@@ -1,4 +1,7 @@
-# Elder Selector Mixin
+---
+title: Elder Selector Mixin
+keywords: elder selector, elder element, mixin, helper function, plugin
+---
 
 This mixin lets CSS authors apply styles to all elder siblings of elements matching a CSS selector.
 

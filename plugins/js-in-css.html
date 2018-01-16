@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=author content="Tommy Hodgins">
+<meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
+<meta name="keywords" content="JS-in-CSS, jsincss, event-driven, virtual stylesheets, CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
+<title>A Simple Pattern for JS-in-CSS - Responsive Style</title>
+<style>
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
@@ -42,18 +42,10 @@ code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
 code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-  </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-  <meta name=keywords content="Responsive, web design, extending, CSS, styling, techniques, rwd, technology, CSS reprocessor, JS-in-CSS, plugins, element queries, style scoping, xpath">
-  <meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
-  
-  <link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-  <link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
-</head>
-<body>
-<h1 id="a-simple-pattern-for-js-in-css">A Simple Pattern for JS-in-CSS</h1>
+</style>
+<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<h1>A Simple Pattern for JS-in-CSS</h1>
 <p>Below is a simple pattern for JavaScript-in-CSS, where on the following events: load, resize, input, and click, the CSS stylesheet held by this plugin will interpolate the JavaScript contained within it and populate a <code>&lt;style&gt;</code> tag on the page with the most up-to-date CSS.</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;load&#39;</span><span class="op">,</span> JSinCSS)
 <span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;resize&#39;</span><span class="op">,</span> JSinCSS)
@@ -124,7 +116,4 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <a href=//tomhodgins.github.io/responsive.style/plugins>Plugins</a>
   <a href=//tomhodgins.github.io/responsive.style/theory>Theory</a>
 </nav>
-
-<footer>by <a href=https://twitter.com/innovati>Tommy Hodgins</a></footer>
-</body>
-</html>
+<footer>by <a href=https://twitter.com/intent/follow/?screen_name=innovati>Tommy Hodgins</a></footer>

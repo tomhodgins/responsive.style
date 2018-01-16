@@ -1,4 +1,7 @@
-# Selectory
+---
+title: Selectory
+keywords: css selector, selector resolver, element queries, container queries, mixin, helper function, plugin
+---
 
 **JavaScript Tests for CSS Selectors**
 

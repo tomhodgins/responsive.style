@@ -1,4 +1,7 @@
-# Scaling any HTML Element
+---
+title: Scaling any HTML Element
+keywords: scalable, maintain, aspect ratio, image map, fixed layout, pixel based, non-responsive, fixed
+---
 
 Sometimes while styling a responsive website you encounter layouts where you are not able to easily make it scalable. If you ever have part of a document with a set width and height, this technique can help you make it scalable based on a simple formula for the scaling factor: `scale = desiredwidth / nativeWidth`
 

@@ -1,4 +1,7 @@
-# reproCSS
+---
+title: reproCSS
+keywords: reprocss, css reprocessor, event-driven, virtual stylesheets, scoped styles, element queries, JIC, JS-in-CSS, jsincss, mixins, helper functions, CSS plugins
+---
 
 **A flexible CSS reprocessor using `<style>` tags**
 

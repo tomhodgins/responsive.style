@@ -1,4 +1,7 @@
-# Plugins
+---
+title: Plugins
+keywords: CSS, extension, plugin, polyfill, mixin, helper function, jsincss, js-in-css, event-driven, virtual stylesheets, css reprocessor
+---
 
 These plugins are just the start of what CSS reprocessing can do. Here I’ve written a number of different ways you can apply the [Techniques](../techniques/) from the Techniques section, and hopefully the documentation here will also help point the way for those implementing their own custom CSS reprocessing plugins from scratch.
 

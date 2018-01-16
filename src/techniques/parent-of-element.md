@@ -1,4 +1,7 @@
-# Selecting the Parent of an Element
+---
+title: Selecting the Parent of an Element
+keywords: parent selector, ancestor selector, closest selector, parent element, selector, css selector, selector resolver
+---
 
 A parent selector for CSS is an often-requested feature from developers — but due to the optimizations browsers make when rendering HTML, so it’s not currently possible to include functionality like this.
 

@@ -1,4 +1,7 @@
-# Selecting Elements with a Partial Tag Name
+---
+title: Selecting Elements with a Partial Tag Name
+keywords: tag name, element name, partial tag, partial name, selector, css selector, selector resolver
+---
 
 CSS selectors (and [`document.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector) in JavaScript) let you select elements by matching their HTML tag name, however there’s no way to match an element based on matching only a part of the tag name. Whether working with custom elements, or wanting to write a selector encompassing `<h1>` tags through `<h6>`, being able to match a partial tag name could be really useful when writing styles.
 

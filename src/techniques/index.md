@@ -1,4 +1,7 @@
-# Techniques
+---
+title: Techniques
+keywords: cutting-edge, advanced CSS, responsive techniques
+---
 
 This collection of styling techniques goes beyond the limits of what CSS can do. This list attempts to expose the most useful ways JavaScript can be used to extendCSS, and to explain the parts required to use each technique.
 

@@ -10,5 +10,5 @@
 
 for file in *.md */*.md
   echo "Converting "(echo "../$file" | sed '$s/\.md$/.html/')
-  pandoc $file -f markdown -t html5 -H template/header-dev.html -B template/nav.html -A template/footer-dev.html -o (echo "../$file" | sed '$s/\.md$/.html/') -s
+  pandoc $file -f markdown -t html5 -H templates/header-dev.html -B templates/nav.html -A templates/footer-dev.html -o (echo "../$file" | sed '$s/\.md$/.html/') -s --data-dir=./
 end

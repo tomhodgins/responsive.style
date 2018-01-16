@@ -1,4 +1,7 @@
-# A Simple Pattern for JS-in-CSS
+---
+title: A Simple Pattern for JS-in-CSS
+keywords: JS-in-CSS, jsincss, event-driven, virtual stylesheets
+---
 
 Below is a simple pattern for JavaScript-in-CSS, where on the following events: load, resize, input, and click, the CSS stylesheet held by this plugin will interpolate the JavaScript contained within it and populate a `<style>` tag on the page with the most up-to-date CSS.
 

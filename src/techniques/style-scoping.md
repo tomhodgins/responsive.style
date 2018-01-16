@@ -1,4 +1,7 @@
-# Style Scoping
+--
+title: Style Scoping
+keywords: style scoping, scoped styles, containment, modules, hash, unique identifier, element queries
+---
 
 Normally all CSS is written in the global scope. This means that the point of reference for all styling begins with the `<html>` element and inherits downward through its child elements.
 

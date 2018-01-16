@@ -1,4 +1,7 @@
-# Using an Element’s Height
+---
+title: Using an Element’s Height
+keywords: element queries, container queries, scoped styles, scrollHeight, offsetHeight, variables, reactive
+---
 
 CSS spec authors recognize that applying styles based on the height of an element is a useful ability, at least in the context of the `<html>` element. There is a `height` range feature for Media Queries that can be used to apply styles based on the height of the browser's viewport, but there is not currently any way to apply styles to individual elements in the page based on their own rendered height as they show up in the browser.
 

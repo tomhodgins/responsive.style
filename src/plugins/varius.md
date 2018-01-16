@@ -1,4 +1,7 @@
-# VARIUS
+---
+title: VARIUS
+keywords: scoped styles, scoped css, variables, offsetWidth, offsetHeight, children, text, characters, scroll position, scroll, mixin, helper function, plugin
+---
 
 **JS Properties for Elements as CSS Variables**
 

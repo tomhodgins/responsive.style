@@ -1,4 +1,7 @@
-# Parent Selector Mixin
+---
+title: Parent Selector Mixin
+keywords: css, parent selector, parent element, mixin, helper function, plugin
+---
 
 This JavaScript function lets you define a CSS selector list and apply a CSS rule to the parent node of any matching tags in your document.
 

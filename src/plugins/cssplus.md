@@ -1,4 +1,7 @@
-# CSSplus
+---
+title: CSSplus
+keywords: css, cssplus, css reprocessor, mixin, helper function, css plugin, css polyfill
+---
 
 <img src=http://csspl.us/cssplus-logo.svg class=float-center>
 

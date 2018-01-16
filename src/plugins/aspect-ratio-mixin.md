@@ -1,4 +1,7 @@
-# Aspect Ratio Mixin
+---
+title: Aspect Ratio Mixin
+keywords: css, aspect ratio, mixin, helper function
+---
 
 This JavaScript function lets you to define an aspect ratio for elements.
 

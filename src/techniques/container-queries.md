@@ -1,4 +1,7 @@
-# Container Queries
+---
+title: Container Queries
+keywords: container queries, element queries, element breakpoints, media queries
+---
 
 This is a term for an element query that wraps a block of CSS rules that apply to different elements other than the scoped element itself. The syntax I am proposing is a container-style element query syntax.
 

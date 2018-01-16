@@ -1,4 +1,7 @@
-# Using an Element’s Width
+---
+title: Using an Element’s Width
+keywords: element queries, container queries, scoped styles, scrollWidth, offsetWidth, variables, reactive
+---
 
 CSS spec authors recognize the ability to style an element differently based on its own width, but currently support is limited to just the width of the `<html>` element though Media Queries.
 

@@ -1,4 +1,7 @@
-# Previous Selector Mixin
+---
+title: Previous Selector Mixin
+keywords: previous element, previous selector, mixin, helper function, plugin
+---
 
 This JavaScript function lets you define a CSS selector list and apply a CSS rule to the previous sibling node of any matching tags in your document.
 

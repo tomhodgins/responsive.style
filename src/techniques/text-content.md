@@ -1,4 +1,7 @@
-# Selecting an Element by Text Content
+---
+title: Selecting an Element by Text Content
+keywords: text content, value, innerHTML, it contains, element, text selector, css selector, selector resolver
+---
 
 One area where CSS is weak is in styling elements based on their text content. Although CSS attribute selectors can match things like the exact value of an HTML attribute, like `<input value="Example">` with an attribute selector like `input[value="Example"]`, it fails to detect changes to that attribute value in the DOM if the value changes after the page loads. Other than that, there is no way to apply styles based on the inner HTML content, text content, or text value of an element.
 

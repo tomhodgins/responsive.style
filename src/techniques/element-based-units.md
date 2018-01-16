@@ -1,4 +1,7 @@
-# Element-Based Units
+---
+title: Element-Based Units
+keywords: element units, EW, EH, EMIN, EMAX, element-based, percentage, viewport units, CSS units, element height
+---
 
 One thing that would be useful when writing CSS would be a set of units that behave similar to the [viewport-percentage units](https://drafts.csswg.org/css-values-4/#viewport-relative-lengths) `vw`, `vh`, `vmin`, and `vmax` (which represent 1% of the browser’s width, height, shortest edge, and longest edge), but instead of being based on the size of the browser’s viewport they would be based on the dimensions of each individual element to which they apply.
 

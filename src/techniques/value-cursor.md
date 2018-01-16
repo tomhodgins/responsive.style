@@ -1,4 +1,7 @@
-# Using the Cursor Position for Styling
+---
+title: Using the Cursor Position for Styling
+keywords: cursor, mouse, pointer, position, coordinates, trailing, tracking, follow, trails
+---
 
 There are ways to style elements based on the cursor position at the level of a selector with CSS pseudo-classes like `:hover` and `:active`, but CSS has no knowledge of the exact cursor position so it's unable to use this for the purpose of styling as a value.
 

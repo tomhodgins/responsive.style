@@ -1,4 +1,7 @@
-# Scrollery
+---
+title: Scrollery
+keywords: scroll, scrolling, scroll position, mixin, helper function, plugin
+---
 
 **Element Scroll Position Exposed via CSS Variables**
 

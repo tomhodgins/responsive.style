@@ -1,4 +1,7 @@
-# Auto Expand Mixin
+---
+title: Auto Expand Mixin
+keywords: css, auto expand, textarea, input, mixin, helper function, plugin
+---
 
 This JavaScript function lets you choose between auto-expanding an element’s width and height to match its `scrollWidth` or `scrollHeight`. Available keywords are `width`, `height`, and `both`.
 

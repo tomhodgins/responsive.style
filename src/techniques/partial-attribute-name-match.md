@@ -1,4 +1,7 @@
-# Selecting Elements with a Partial Attribute Name
+---
+title: Selecting Elements with a Partial Attribute Name
+keywords: attribute selector, attribute name, partial attribute, selector, css selector, selector resolver
+---
 
 CSS selectors (and `document.querySelector()`) let you select elements by matching the names and values of their attributes. It’s possible to match [part of an attribute’s value](https://drafts.csswg.org/selectors/#attribute-representation) using `[attribute*=]`, `[attribute^=]`, `[attribute$=]`, but there’s no way to select an element based on matching only part of an attribute name.
 

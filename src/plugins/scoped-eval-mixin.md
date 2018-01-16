@@ -1,4 +1,7 @@
-# Scoped Eval Mixin
+---
+title: Scoped Eval Mixin
+keywords: css eval, scoped eval, eval, expression, mixin, helper function, plugin
+---
 
 This JavaScript function lets you define a CSS selector list, and to output CSS rules with JS interpolation from the context of each element in the document matching the selector.
 

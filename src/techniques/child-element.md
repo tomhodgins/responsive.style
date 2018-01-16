@@ -1,4 +1,7 @@
-# Selecting an Element by a Child it Contains
+---
+title: Selecting an Element by a Child it Contains
+keywords: selector, CSS selector, selector resolver, child selector, child element, text content, contains text
+---
 
 The CSS specifications include a feature called [`:has()`](https://drafts.csswg.org/selectors/#relational) that would allow you to select an element that contains another element matching a CSS selector, but so far [no browsers](http://caniuse.com/#feat=css-has) have shown interest in supporting it.
 

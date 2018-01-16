@@ -1,4 +1,7 @@
-# EQCSS
+---
+title: EQCSS
+keywords: EQCSS, element queries, container queries, plugin, polyfill, extension
+---
 
 **A CSS Extension for Element Queries & More**
 

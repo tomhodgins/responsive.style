@@ -1,4 +1,7 @@
-# Selecting the Previous Sibling of an Element
+---
+title: Selecting the Previous Sibling of an Element
+keywords: previous element, previous sibling, prev, preceding sibling, tag, selector, css selector, selector resolver
+---
 
 For the same reason CSS cannot reach the parent element if a given selector, you also are not able to reach the element appearing directly before a given element in HTML with CSS. It’s easy to select the element directly following any element with `+ *`, but there’s no way to go backward.
 

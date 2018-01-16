@@ -1,4 +1,7 @@
-# Container Queries Mixin
+---
+title: Container Queries Mixin
+keywords: container queries, element queries, container query, element query, element breakpoint, media queries, mixin, helper function, plugin
+---
 
 This JavaScript function lets you define a ‘container’ using a CSS selector, run a JavaScript test against matching tags that match the container’s selector, and to apply a CSS rule to that container or its children.
 

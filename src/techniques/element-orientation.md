@@ -1,4 +1,7 @@
-# Using an Element’s Orientation
+---
+title: Using an Element’s Orientation
+keywords: element queries, container queries, scoped styles, scrollHeight, scrollWidth, offsetHeight, offsetWidth, variables, reactive
+---
 
 Similar to aspect ratio, orientation is something CSS spec authors recognize as being useful for styling, but are only support on the `<html>` element itself via Media Queries, and not something that you can use to apply styles to other elements in the document.
 

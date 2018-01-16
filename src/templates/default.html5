@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name=author content="Tommy Hodgins">
+$if(description)$
+<meta name=description content="$description$">
+$else$
+<meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
+$endif$
+<meta name="keywords" content="$if(keywords)$$keywords$, $endif$CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
+<title>$if(pagetitle)$$pagetitle$ - $endif$Responsive Style</title>
+$if(highlighting-css)$
+<style>
+$highlighting-css$
+</style>
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+<h1>$title$</h1>
+$endif$
+$if(subtitle)$
+<h2 class=subtitle>$subtitle$</h1>
+$endif$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$

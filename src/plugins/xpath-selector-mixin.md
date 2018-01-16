@@ -1,4 +1,7 @@
-# XPath Selector Mixin
+---
+title: XPath Selector Mixin
+keywords: XPath, XML path, XPath functions, XPath in CSS, XPath selector, XPath axes, selector, selector resolver, mixin, helper function, plugin
+---
 
 This JavaScript function lets you use XPath as a selector for CSS rules.
 

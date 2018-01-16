@@ -1,4 +1,7 @@
-# Aspecty
+---
+title: Aspecty
+keywords: css, aspect ratio, mixin, plugin, helper function
+---
 
 **An `aspect-ratio` Property for CSS**
 
