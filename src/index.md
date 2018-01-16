@@ -14,7 +14,7 @@ This book attempts to document how CSS reprocessing works, provide explanations 
   <form action="https://tomhodgins.us10.list-manage.com/subscribe/post?u=df899bcfda656bdcc8fb07c20&amp;id=b403c8835c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
   <div id="mc_embed_signup_scroll">
   <div class="mc-field-group">
-  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address…">
+  <input aria-label="email" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address…">
   </div>
   <div id="mce-responses" class="clear">
   <div class="response" id="mce-error-response" style="display:none"></div>
