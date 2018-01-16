@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>Element-Based Units</h1>
 <p>One thing that would be useful when writing CSS would be a set of units that behave similar to the <a href="https://drafts.csswg.org/css-values-4/#viewport-relative-lengths">viewport-percentage units</a> <code>vw</code>, <code>vh</code>, <code>vmin</code>, and <code>vmax</code> (which represent 1% of the browser’s width, height, shortest edge, and longest edge), but instead of being based on the size of the browser’s viewport they would be based on the dimensions of each individual element to which they apply.</p>
 <p>Let’s call these new units “element-percentage units”, and name them <code>ew</code>, <code>eh</code>, <code>emin</code>, and <code>emax</code>. What benefit would they be over the existing CSS units, like <code>%</code> or the viewport-percentage units? Possible benefits include:</p>

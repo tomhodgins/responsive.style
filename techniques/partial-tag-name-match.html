@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>Selecting Elements with a Partial Tag Name</h1>
 <p>CSS selectors (and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"><code>document.querySelector()</code></a> in JavaScript) let you select elements by matching their HTML tag name, however there’s no way to match an element based on matching only a part of the tag name. Whether working with custom elements, or wanting to write a selector encompassing <code>&lt;h1&gt;</code> tags through <code>&lt;h6&gt;</code>, being able to match a partial tag name could be really useful when writing styles.</p>
 <p>Thankfully this is something we can do via <a href="https://developer.mozilla.org/en-US/docs/Web/XPath">XPath</a> in modern browsers (&gt;IE11) like this:</p>

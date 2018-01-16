@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>Selecting the Ancestor of an Element</h1>
 <p>CSS is limited to selecting elements, their following (younger) siblings, and children — but is unable to select elements ‘above’ or before elements in the tree structure. CSS in browsers can’t select the parent, or ancestor of another element. There is a selector in the CSS specs called <a href="https://drafts.csswg.org/selectors/#relational"><code>:has()</code></a> which would allow you to select the ancestor of an element matching another CSS selector, but despite being in the spec for years there is currently <a href="http://caniuse.com/#feat=css-has">zero browser support for <code>:has()</code></a>.</p>
 <p>Sometimes, especially when working with HTML you don’t have the ability to alter, it would be nice to be able to select an ancestor of another element for styling. While CSS is unable to work in these situations, both JavaScript and XPath are able to achieve this.</p>

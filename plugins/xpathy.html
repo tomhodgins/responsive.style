@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>XPathy</h1>
 <p><strong>Using XPath Selectors in CSS</strong></p>
 <p>XPathy is a CSS reprocessor that resolves selectors using XPath. This plugin will read CSS selectors that end with a <code>[xpath]</code> attribute and use JavaScript and XPath to determine whether or not to apply that style to elements matching the other part of that selector. For example, the XPath selector <code>//div</code> will always resolve to <code>div</code>, so a selector written for <code>div [xpath=&quot;//div&quot;] {}</code> will always apply to each <code>div div {}</code> element.</p>

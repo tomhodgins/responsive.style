@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>Using an Element’s Aspect Ratio</h1>
 <p>All elements in HTML are represented by boxes, which means all elements have a width and a height (even if the value of those is zero). Therefore there is always a relationship between the width and height of an element which can be described as its aspect ratio, represented by <code>aspect ratio = width ÷ height</code>.</p>
 <p>CSS recognizes that styling based on the current state of the aspect ratio is useful at the level of the document with the <a href="https://drafts.csswg.org/mediaqueries/#orientation">Orientation feature</a>, but this is based on the viewport, equal to the aspect ratio of the <code>&lt;html&gt;</code> element and doesn't offer any way to apply styles to any other element based on its own aspect ratio.</p>

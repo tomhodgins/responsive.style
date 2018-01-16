@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>Selectory</h1>
 <p><strong>JavaScript Tests for CSS Selectors</strong></p>
 <p>Selectory is a CSS reprocessor that resolves selectors using JS. This plugin will read CSS selectors that end with a <code>[test]</code> attribute and use JavaScript to determine whether or not to apply that style to elements matching the other part of that selector. For example, the JS test <code>1 == 1</code> will always resolve to <code>true</code>, so a selector written for <code>div[test=&quot;1 == 1&quot;] {}</code> will always apply to each <code>div</code> element.</p>

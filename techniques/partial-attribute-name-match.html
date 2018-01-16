@@ -43,8 +43,8 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
-<link href="//tomhodgins.github.io/responsive.style/src/style.css" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet>
+<link href="/src/style.css" rel=stylesheet>
 <h1>Selecting Elements with a Partial Attribute Name</h1>
 <p>CSS selectors (and <code>document.querySelector()</code>) let you select elements by matching the names and values of their attributes. It’s possible to match <a href="https://drafts.csswg.org/selectors/#attribute-representation">part of an attribute’s value</a> using <code>[attribute*=]</code>, <code>[attribute^=]</code>, <code>[attribute$=]</code>, but there’s no way to select an element based on matching only part of an attribute name.</p>
 <p>Thankfully this is something we can do via XPath in all modern browsers (excluding IE11) like this:</p>
