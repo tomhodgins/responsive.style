@@ -12,3 +12,11 @@ for file in *.md */*.md
   echo "Converting "(echo "../$file" | sed '$s/\.md$/.html/')
   pandoc $file -f markdown -t html5 -H templates/header-prod.html -B templates/nav.html -A templates/footer-prod.html -o (echo "../$file" | sed '$s/\.md$/.html/') -s  --data-dir=./
 end
+
+# SIMPLE SITEMAP BUILD SCRIPT
+
+true > ../sitemap.txt
+
+for file in ../*.html ../*/*.html
+  echo (echo "https://responsive.style/$file" | sed '$s/\.\.\///') >> ../sitemap.txt
+end
