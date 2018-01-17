@@ -40,7 +40,7 @@ blockquote:not(pre) code {
   background: #fcf;
 }
 blockquote.level-2 {
-  color: #282;
+  color: #272;
   background: #efe;
 }
 blockquote.level-2 a {
@@ -247,7 +247,7 @@ dd {
   margin-top: 1em;
 }
 .newsletter input[type=submit] {
-  background: #292;
+  background: #272;
   color: white;
   cursor: pointer;
   padding: .5em .75em;
