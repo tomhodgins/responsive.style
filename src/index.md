@@ -1,5 +1,5 @@
 ---
-title: CSS Reprocessor Techniques
+title: Responsive Style
 subtitle: A Fresh Approach to Extending CSS
 ---
 
