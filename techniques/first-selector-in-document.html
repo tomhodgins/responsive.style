@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selecting the First Element Matching a Selector</h1>
 <p>CSS has pseudo-classes that allow you to select the first instance of a selector at any level in the DOM like <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:first-of-type"><code>:first-of-type()</code></a>, but there is no equivalent in CSS for the ability to select only the first instance of an element matching a selector in the entire document (at any level). This would function more like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"><code>document.querySelector()</code></a> in JavaScript.</p>
 <h2 id="parts-required">Parts Required</h2>

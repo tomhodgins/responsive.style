@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Style Scoping</h1>
 <p>Normally all CSS is written in the global scope. This means that the point of reference for all styling begins with the <code>&lt;html&gt;</code> element and inherits downward through its child elements.</p>
 <p>With scoped CSS you have the ability to pick any element as a point of reference, and by ‘scoping’ an element you create a context that can be used to select other elements, or to apply styles using values about the scoped element as it appears on the page. (Like using the scoped element’s <code>offsetWidth</code> as reported by the browser inside the CSS you are using to write your styles.)</p>

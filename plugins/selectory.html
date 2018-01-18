@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selectory</h1>
 <p><strong>JavaScript Tests for CSS Selectors</strong></p>
 <p>Selectory is a CSS reprocessor that resolves selectors using JS. This plugin will read CSS selectors that end with a <code>[test]</code> attribute and use JavaScript to determine whether or not to apply that style to elements matching the other part of that selector. For example, the JS test <code>1 == 1</code> will always resolve to <code>true</code>, so a selector written for <code>div[test=&quot;1 == 1&quot;] {}</code> will always apply to each <code>div</code> element.</p>

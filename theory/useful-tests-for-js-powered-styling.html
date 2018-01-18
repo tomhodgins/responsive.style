@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Useful Tests for JS-Powered Styling</h1>
 <p>This page is filled with JavaScript-based tests that are useful for styling, whether it's trying to target selectors CSS can't normally reach, or trying to use element queries or container queries check out the list below for tests that can be used with the CSS reprocessors like <a href="https://github.com/eqcss/eqcss">EQCSS</a>, <a href="https://github.com/tomhodgins/js-in-css">JS-in-CSS</a>, <a href="https://github.com/tomhodgins/cssplus#selectory-a-selector-resolver">Selectory</a>, <a href="https://github.com/tomhodgins/reprocss">reproCSS</a>, and more!</p>
 <h3 id="width-based-tests">Width-based tests</h3>

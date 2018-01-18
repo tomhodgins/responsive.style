@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Clamped Values</h1>
 <p>CSS has scalable units like <code>%</code>, the viewport-percentage lengths (<code>vw</code>, <code>vh</code>, <code>vmin</code>, and <code>vmax</code>) and even more. Another type of scalable unit not part of CSS that some designers with with is the idea of the <a href="element-based-units.html">element-based unit</a>. With all of these, there might be the desire to ‘clamp’ the value with a certain minimum or maximum value, effectively setting a range for the scalable value that it cannot exceed.</p>
 <p>Thankfully CSS has a <code>minmax()</code> function that acts like a number clamp in some situations, but unfortunately it’s limited to the Grid display module. There are a number of situations when styling websites where being able to clamp scalable units would be helpful, including sizing fonts, setting percentage-based margins and padding, and much more. It’s unfortunate that CSS’s <code>minmax()</code> function is too limited to work in these cases, but there are workarounds. In the future CSS is gaining <code>min()</code> and <code>max()</code> functions which will be able to be used anywhere, and even nested within each other to perform number clamping like <code>min(max(10px, 10vw, 100px))</code>.</p>

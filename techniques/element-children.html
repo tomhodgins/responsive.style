@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Using an Element’s Child Elements</h1>
 <p>No browsers allow you to apply styles to an element based on the number of child elements if contains. The <code>:has()</code> selector would in theory, but since it has been Adopted into the CSS spec zero browsers have offered any support for it.</p>
 <p>Thankfully even though CSS has no knowledge of the number of children an element has, both JavaScript and XPath are aware of this and are able to let you use this knowledge for resolving selectors.</p>

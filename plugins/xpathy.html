@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>XPathy</h1>
 <p><strong>Using XPath Selectors in CSS</strong></p>
 <p>XPathy is a CSS reprocessor that resolves selectors using XPath. This plugin will read CSS selectors that end with a <code>[xpath]</code> attribute and use JavaScript and XPath to determine whether or not to apply that style to elements matching the other part of that selector. For example, the XPath selector <code>//div</code> will always resolve to <code>div</code>, so a selector written for <code>div [xpath=&quot;//div&quot;] {}</code> will always apply to each <code>div div {}</code> element.</p>

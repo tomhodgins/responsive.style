@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selecting the Parent of an Element</h1>
 <p>A parent selector for CSS is an often-requested feature from developers — but due to the optimizations browsers make when rendering HTML, so it’s not currently possible to include functionality like this.</p>
 <p>JavaScript and XPath are both able to locate the parent node of another node, JavaScript with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode"><code>parentNode</code></a>, and using XPath with <code>/parent::*</code> or <code>/..</code>.</p>

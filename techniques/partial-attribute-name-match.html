@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selecting Elements with a Partial Attribute Name</h1>
 <p>CSS selectors (and <code>document.querySelector()</code>) let you select elements by matching the names and values of their attributes. It’s possible to match <a href="https://drafts.csswg.org/selectors/#attribute-representation">part of an attribute’s value</a> using <code>[attribute*=]</code>, <code>[attribute^=]</code>, <code>[attribute$=]</code>, but there’s no way to select an element based on matching only part of an attribute name.</p>
 <p>Thankfully this is something we can do via XPath in all modern browsers (excluding IE11) like this:</p>

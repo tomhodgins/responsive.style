@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Using an Element’s Scroll Position</h1>
 <p>Currently CSS Doesn't have any way to apply styles based on the document's scroll position or the scroll position of individual elements on the page. The closest CSS comes is the <code>position: sticky</code> spec, but in this case we're only able to harness the scroll event in the most basic way.</p>
 <p>JavaScript has a much more useful knowledge of the scroll dimensions of an element - it's current scroll position as well as it's current scroll size, which when paired with knowledge of its rendered width and height provide a powerful context for applying styles that CSS is currently ignorant of.</p>

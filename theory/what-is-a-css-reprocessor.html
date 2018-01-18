@@ -11,8 +11,12 @@
 <meta name="keywords" content="CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
 <meta property="og:title" content="What is a CSS Reprocessor? - Responsive Style">
 <title>What is a CSS Reprocessor? - Responsive Style</title>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>What is a CSS Reprocessor?</h1>
 <p>A CSS reprocessor is software that processes (or reprocesses as-needed) CSS code in the web browser after the page has loaded.</p>
 <p>CSS reprocessors are used to extend the features and capabilities of CSS by using JavaScript logic to help write styles that CSS alone can’t reach.</p>

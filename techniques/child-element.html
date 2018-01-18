@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selecting an Element by a Child it Contains</h1>
 <p>The CSS specifications include a feature called <a href="https://drafts.csswg.org/selectors/#relational"><code>:has()</code></a> that would allow you to select an element that contains another element matching a CSS selector, but so far <a href="http://caniuse.com/#feat=css-has">no browsers</a> have shown interest in supporting it.</p>
 <p>(like <code>:has()</code>, <code>:focus-within</code>)</p>

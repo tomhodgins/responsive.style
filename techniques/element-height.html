@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Using an Element’s Height</h1>
 <p>CSS spec authors recognize that applying styles based on the height of an element is a useful ability, at least in the context of the <code>&lt;html&gt;</code> element. There is a <code>height</code> range feature for Media Queries that can be used to apply styles based on the height of the browser's viewport, but there is not currently any way to apply styles to individual elements in the page based on their own rendered height as they show up in the browser.</p>
 <p>Thankfully JavaScript has knowledge of the height of every element in the document, so we can use JavaScript to help us resolve the selectors that should apply.</p>

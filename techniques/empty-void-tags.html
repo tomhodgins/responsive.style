@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selecting Void Tags When Empty</h1>
 <p>Css has specified two pseudo-classes that should select an element when it has no contents, <code>:empty</code> and <code>:blank</code>, but both of these enjoy different browser support and aren't always right for the situation where you want to apply styles. Especially when the situation is styling <code>&lt;input&gt;</code> tags, being able to detect when the tag is completely empty can be very useful.</p>
 <h2 id="parts-required">Parts Required</h2>

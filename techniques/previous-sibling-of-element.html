@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Selecting the Previous Sibling of an Element</h1>
 <p>For the same reason CSS cannot reach the parent element if a given selector, you also are not able to reach the element appearing directly before a given element in HTML with CSS. It’s easy to select the element directly following any element with <code>+ *</code>, but there’s no way to go backward.</p>
 <p>In JavaScript there is <a href="https://developer.mozilla.org/en/docs/Web/API/Node/previousSibling"><code>previousSibling</code></a> which returns the previous node, which could also be a text node or comment node (not always what we expect) so what we’re usually looking for is the element that’s equal to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling"><code>previousElementSibling</code></a> of another element.</p>

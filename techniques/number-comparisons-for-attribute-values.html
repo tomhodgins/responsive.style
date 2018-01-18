@@ -51,8 +51,12 @@ code > span.al { color: #95da4c; } /* Alert */
 code > span.er { color: #da4453; } /* Error */
 code > span. { color: #cfcfc2; } /* Normal */
 </style>
-<link href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" rel=stylesheet media=none onload="media=''">
-<link href="/src/style.css" rel=stylesheet media=none onload="media=''">
+<link rel=preload href="/src/style.css" as=style onload="onload=null;rel='stylesheet'">
+<link rel=preload href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text" as=style onload="onload=null;rel='stylesheet'">
+<noscript>
+	<link rel=stylesheet href="/src/style.css">
+	<link rel=stylesheet href="//fonts.googleapis.com/css?family=Cormorant+Garamond|Crimson+Text">
+</noscript>
 <h1>Compare Attribute Values as Numbers</h1>
 <p>CSS has attribute selectors that are able to select elements that contain exact matches of values or partial matches of values, but has no way to select elements by comparing the value of an attribute as a number with operators like <code>greater than</code>, <code>less than</code>, <code>greater or equal</code>, or <code>less or equal</code>.</p>
 <p>Both JavaScript and XPath are able to evaluate the values of attributes as numbers and select elements based on comparisons like this.</p>
