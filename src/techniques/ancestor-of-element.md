@@ -1,6 +1,7 @@
 ---
 title: Selecting the Ancestor of an Element
 keywords: selector, selector resolver, ancestor selector, parent selector, css parent
+description: How can you style the ancestor of another element with CSS? Both JavaScript and XPath have ways of reaching the element of an ancestor, learn how to style the ancestor of another element with CSS.
 ---
 
 CSS is limited to selecting elements, their following (younger) siblings, and children — but is unable to select elements ‘above’ or before elements in the tree structure. CSS in browsers can’t select the parent, or ancestor of another element. There is a selector in the CSS specs called [`:has()`](https://drafts.csswg.org/selectors/#relational) which would allow you to select the ancestor of an element matching another CSS selector, but despite being in the spec for years there is currently [zero browser support for `:has()`](http://caniuse.com/#feat=css-has).

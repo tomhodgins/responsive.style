@@ -1,6 +1,7 @@
 ---
 title: Selecting Void Tags When Empty
 keywords: element queries, scoped styles, selector, :empty, :blank, selector resolver
+description: How can CSS select tags with empty values? JavaScript is aware of the value of an element, learn how to use JavaScript and CSS together to style elements with no value.
 ---
 
 Css has specified two pseudo-classes that should select an element when it has no contents, `:empty` and `:blank`, but both of these enjoy different browser support and aren't always right for the situation where you want to apply styles. Especially when the situation is styling `<input>` tags, being able to detect when the tag is completely empty can be very useful.

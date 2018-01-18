@@ -1,6 +1,7 @@
 ---
 title: Scaling any HTML Element
 keywords: scalable, maintain, aspect ratio, image map, fixed layout, pixel based, non-responsive, fixed
+description: How can you make an element with a fixed size scalable? JavaScript can be used to help scale any HTML element, learn how to use JavaScript and CSS together to scale any HTML element you might ever need to resize.
 ---
 
 Sometimes while styling a responsive website you encounter layouts where you are not able to easily make it scalable. If you ever have part of a document with a set width and height, this technique can help you make it scalable based on a simple formula for the scaling factor: `scale = desiredwidth / nativeWidth`

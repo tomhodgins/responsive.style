@@ -12,7 +12,7 @@ echo "Converting to HTML…"
 
 for file in *.md */*.md
   echo " converting $file"
-  pandoc $file -f markdown -t html5 -H templates/header-prod.html -B templates/nav.html -A templates/footer-prod.html -o (echo "../$file" | sed '$s/\.md$/.html/') -s  --data-dir=./
+  pandoc $file -f markdown -t html5 -H templates/header-prod.html -B templates/nav.html -A templates/footer-prod.html -o (echo "../$file" | sed '$s/\.md$/.html/') -s  --data-dir=./ --highlight-style breezedark
 end
 
 echo "HTML built"

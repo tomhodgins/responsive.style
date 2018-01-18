@@ -3,13 +3,18 @@
 <meta charset=utf-8>
 <meta name=theme-color content="white">
 <meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="twitter:card" content="summary">
 <meta name=author content="Tommy Hodgins">
+<meta name="twitter:creator" content="@innovati">
 $if(description)$
 <meta name=description content="$description$">
+<meta property="og:description" content="$description$">
 $else$
-<meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new techniques and the plugins that make them easy to use.">
+<meta name=description content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new responsive techniques and the plugins that make them easy to use.">
+<meta property="og:description" content="Responsive.Style is your guide to extending CSS with JavaScript, come discover new responsive techniques and the plugins that make them easy to use.">
 $endif$
 <meta name="keywords" content="$if(keywords)$$keywords$, $endif$CSS reprocessor, extending, CSS, responsive, web design, styling, techniques, rwd, technology, plugins">
+<meta property="og:title" content="$if(pagetitle)$$pagetitle$ - $endif$Responsive Style">
 <title>$if(pagetitle)$$pagetitle$ - $endif$Responsive Style</title>
 $if(highlighting-css)$
 <style>

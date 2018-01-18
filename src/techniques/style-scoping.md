@@ -1,6 +1,7 @@
 ---
 title: Style Scoping
 keywords: style scoping, scoped styles, containment, modules, hash, unique identifier, element queries
+description: What is 'style scoping'? Learn about how CSS rules and stylesheets can be scoped to individual elements, and the new techniques style scoping makes possible.
 ---
 
 Normally all CSS is written in the global scope. This means that the point of reference for all styling begins with the `<html>` element and inherits downward through its child elements.

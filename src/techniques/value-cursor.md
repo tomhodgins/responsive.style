@@ -1,6 +1,7 @@
 ---
 title: Using the Cursor Position for Styling
 keywords: cursor, mouse, pointer, position, coordinates, trailing, tracking, follow, trails
+description: How can you use the mouse's position in your styles? JavaScript is aware of the mouse or pointer's position, learn how to use JavaScript and CSS together to style based on the cursor.
 ---
 
 There are ways to style elements based on the cursor position at the level of a selector with CSS pseudo-classes like `:hover` and `:active`, but CSS has no knowledge of the exact cursor position so it's unable to use this for the purpose of styling as a value.

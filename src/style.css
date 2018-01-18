@@ -131,10 +131,11 @@ hr {
 }
 code,
 pre {
-  font-family: 'Source Code Pro', Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  font-family: 'Fira Code', 'Source Code Pro', Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
 *:not(pre) > code {
   padding: 0 .5em;
+  color: inherit;
   background: #fef;
   font-size: 80%;
 }
@@ -146,9 +147,8 @@ code {
   margin: 1em 0;
 }
 pre {
-  font-size: 80%;
-  border: .25em solid #eee;
-  padding: 1em 2em;
+  padding: .5em 2em;
+  font-weight: 400;
   word-break: break-all;
   word-wrap:break-word;
   overflow-x: auto;

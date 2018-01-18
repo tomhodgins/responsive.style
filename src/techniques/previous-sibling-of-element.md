@@ -1,6 +1,7 @@
 ---
 title: Selecting the Previous Sibling of an Element
 keywords: previous element, previous sibling, prev, preceding sibling, tag, selector, css selector, selector resolver
+description: How can CSS select the previous element of another element? Both JavaScript and XPath are aware of the previous element, learn how to use them together with CSS to apply styles to the element that comes before another element.
 ---
 
 For the same reason CSS cannot reach the parent element if a given selector, you also are not able to reach the element appearing directly before a given element in HTML with CSS. It’s easy to select the element directly following any element with `+ *`, but there’s no way to go backward.

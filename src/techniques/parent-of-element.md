@@ -1,6 +1,7 @@
 ---
 title: Selecting the Parent of an Element
 keywords: parent selector, ancestor selector, closest selector, parent element, selector, css selector, selector resolver
+description: Is there a parent selector? How can you target the parent element of another element? JavaScript and XPath are aware of the parents of elements, learn how you can use them together with CSS to apply styles to the parent of any element.
 ---
 
 A parent selector for CSS is an often-requested feature from developers — but due to the optimizations browsers make when rendering HTML, so it’s not currently possible to include functionality like this.

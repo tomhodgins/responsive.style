@@ -1,6 +1,7 @@
 ---
 title: Using an Element’s Orientation
 keywords: element queries, container queries, scoped styles, scrollHeight, scrollWidth, offsetHeight, offsetWidth, variables, reactive
+description: How can you apply styles to an element based on its own aspect-ratio? JavaScript is aware of the width and height of an element, learn how to use JavaScript together with CSS to apply styles to elements based on their orientation.
 ---
 
 Similar to aspect ratio, orientation is something CSS spec authors recognize as being useful for styling, but are only support on the `<html>` element itself via Media Queries, and not something that you can use to apply styles to other elements in the document.
