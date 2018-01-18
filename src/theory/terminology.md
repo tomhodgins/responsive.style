@@ -1,5 +1,6 @@
 ---
 title: CSS Reprocessing Terminology
+description: Terms and concepts used in CSS reprocessing and JS-in-CSS plugins explained.
 ---
 
 <dl>

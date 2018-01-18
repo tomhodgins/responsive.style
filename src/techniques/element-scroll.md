@@ -1,6 +1,7 @@
 ---
 title: Using an Element’s Scroll Position
 keywords: element queries, container queries, scoped styles, scrollHeight, offsetHeight, variables, reactive
+description: How can you use knowledge of an element's scroll position for styling? JavaScript is aware of the scroll position and dimensions of every element, learn how to use JavaScript and CSS together to style elements based on their own scroll position.
 ---
 
 Currently CSS Doesn't have any way to apply styles based on the document's scroll position or the scroll position of individual elements on the page. The closest CSS comes is the `position: sticky` spec, but in this case we're only able to harness the scroll event in the most basic way.

@@ -1,6 +1,7 @@
 ---
 title: Using an Element’s Width
 keywords: element queries, container queries, scoped styles, scrollWidth, offsetWidth, variables, reactive
+description: How can you use knowledge of an element's width for styling? JavaScript is aware of the width of every element, learn how to use JavaScript and CSS together to style elements based on their own width.
 ---
 
 CSS spec authors recognize the ability to style an element differently based on its own width, but currently support is limited to just the width of the `<html>` element though Media Queries.

@@ -1,6 +1,7 @@
 ---
 title: Selecting Elder Siblings of an Element
 keywords: selector, css selector, selector resolver, elder siblings, css older, css elder, css sibling, previous element
+description: How can you style an element's elder siblings? JavaScript is aware of all of an element's siblings. Learn how to use JavaScript and CSS together to style the elder siblings of an element.
 ---
 
 CSS is able to select elements, the junior siblings of elements, and the children of elements, but it cannot select the elder siblings of elements.

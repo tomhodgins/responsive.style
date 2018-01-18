@@ -1,6 +1,7 @@
 ---
 title: Using an Element’s Aspect Ratio
 keywords: scalable, aspect, ratio, aspect ratio, crop, resize, embed, iframe
+description: How can you use knowledge of an element's aspect ratio for styling? JavaScript is aware of the aspect ratio of every element, learn how to use JavaScript and CSS together to style elements based on their own aspect ratio.
 ---
 
 All elements in HTML are represented by boxes, which means all elements have a width and a height (even if the value of those is zero). Therefore there is always a relationship between the width and height of an element which can be described as its aspect ratio, represented by `aspect ratio = width ÷ height`.

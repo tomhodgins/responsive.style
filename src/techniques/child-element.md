@@ -1,6 +1,7 @@
 ---
 title: Selecting an Element by a Child it Contains
 keywords: selector, CSS selector, selector resolver, child selector, child element, text content, contains text
+description: How can you style an element based on a child it contains? JavaScript is aware of all of the children of every element. Learn how to use JavaScript and CSS together to style elements based on their children.
 ---
 
 The CSS specifications include a feature called [`:has()`](https://drafts.csswg.org/selectors/#relational) that would allow you to select an element that contains another element matching a CSS selector, but so far [no browsers](http://caniuse.com/#feat=css-has) have shown interest in supporting it.

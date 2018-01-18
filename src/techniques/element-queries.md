@@ -1,6 +1,7 @@
 ---
 title: Element Queries
 keywords: element queries, container queries, scoped styles
+description: Learn about element queries, what they are, how to implement them, and the ways you can put them to use to help you style your layouts with breakpoints based on the elements you're styling rather than the viewport.
 ---
 
 An element query is a [scoped style](style-scoping.html) with the addition of one or more responsive conditions. A responsive condition could look like `(min-width: 500px)` or `(max-characters: 20)`, and would prevent the block of css rules from applying to the page until the responsive conditions are true.

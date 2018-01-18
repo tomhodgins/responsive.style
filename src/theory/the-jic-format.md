@@ -1,6 +1,7 @@
 ---
 title: The `.jic` Format
 keywords: JS-in-CSS, JSinCSS, JIC, file format, hybrid stylesheet, hybrid file format, template string
+description: A description of the .JIC hybrid stylesheet file format used for writing JS-in-CSS stylesheets. The JIC format is a plugin interchange format that can be read by a number of JS-in-CSS plugins.
 ---
 
 If you haven't heard about JS-in-CSS or JIC stylesheets before, the idea is very simple: treat a CSS stylesheet like a JavaScript template string. If you've never written a JIC stylesheet before, they can be a _lot of fun!_

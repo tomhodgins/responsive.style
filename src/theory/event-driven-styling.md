@@ -1,6 +1,7 @@
 ---
 title: Event-Driven Styling
 keywords: event-driven, virtual stylesheets, EDVS, JSinCSS
+description: Learn about writing event-driven virtual stylesheets for writing CSS. It's easy to implement scoped styles, element queries, container queries and more with this simple technique.
 ---
 
 Writing styles in CSS is kind of like having a representation of what styling should be active in different states within your HTML document. Because events happen inside the browser which are good triggers for styling changes, CSS already responds to some mouse and keyboard events through pseudo-classes like `:hover`, `:focus`, and `:active`.

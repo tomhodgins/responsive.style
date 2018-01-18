@@ -1,6 +1,7 @@
 ---
 title: Container Queries
 keywords: container queries, element queries, element breakpoints, media queries
+description: What are Container Queries? Learn about what Container Queries are, how you can use them with JavaScript today, and what you can build with breakpoints based on elements in your document, rather than based on the viewport.
 ---
 
 This is a term for an element query that wraps a block of CSS rules that apply to different elements other than the scoped element itself. The syntax I am proposing is a container-style element query syntax.

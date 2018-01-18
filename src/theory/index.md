@@ -1,6 +1,7 @@
 ---
 title: Theory
 keywords: css reprocessor, event-driven, virtual stylesheets, extending css, css polyfill, css plugin, custom syntax
+description: Learn the theories and concepts behind how JS-in-CSS and Event-Driven Virtual Stylesheets work and how to put them to use in your own projects and plugins.
 ---
 
 This is a section for the theory about designing element-first, CSS reprocessing, extending CSS via JS, and more…

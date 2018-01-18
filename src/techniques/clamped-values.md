@@ -1,6 +1,7 @@
 ---
 title: Clamped Values
 keywords: number clamp, clamped, min, max, minimum, maximum, css locks
+description: How can you set a minimum or maximum for a number value you are using in CSS? JavaScript has Math.min() and Math.max(). Learn how to use JavaScript and CSS together to clamp numbers used for styling in CSS.
 ---
 
 CSS has scalable units like `%`, the viewport-percentage lengths (`vw`, `vh`, `vmin`, and `vmax`) and even more. Another type of scalable unit not part of CSS that some designers with with is the idea of the [element-based unit](element-based-units.html). With all of these, there might be the desire to ‘clamp’ the value with a certain minimum or maximum value, effectively setting a range for the scalable value that it cannot exceed.

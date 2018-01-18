@@ -1,6 +1,7 @@
 ---
 title: Useful Tests for JS-Powered Styling
 keywords: JS tests, responsive features, query conditions, container queries, element queries
+description: These are the most useful JavaScript tests for writing element queries and container queries for your stylesheets, or if you are building your own element query plugin.
 ---
 
 This page is filled with JavaScript-based tests that are useful for styling, whether it's trying to target selectors CSS can't normally reach, or trying to use element queries or container queries check out the list below for tests that can be used with the CSS reprocessors like [EQCSS](https://github.com/eqcss/eqcss), [JS-in-CSS](https://github.com/tomhodgins/js-in-css), [Selectory](https://github.com/tomhodgins/cssplus#selectory-a-selector-resolver), [reproCSS](https://github.com/tomhodgins/reprocss), and more!

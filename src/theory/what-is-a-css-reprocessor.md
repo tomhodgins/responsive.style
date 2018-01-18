@@ -1,5 +1,6 @@
 ---
 title: What is a CSS Reprocessor?
+description: Learn what a CSS reprocessor is, how it's different than a CSS preprocessor, and how you can use CSS reprocessors to help boost your styling ability.
 ---
 
 A CSS reprocessor is software that processes (or reprocesses as-needed) CSS code in the web browser after the page has loaded.

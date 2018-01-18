@@ -2,6 +2,7 @@
 title: What is a JIC Stylesheet?
 subtitle: a format and mixin guideline for JS-in-CSS
 keywords: JSinCSS, JIC, file format, hybrid stylesheet, hybrid file format, template string
+description: Learn how to write JS-in-CSS stylesheets in a hybrid file format, and discover the places and ways where JavaScript can be used to extend what CSS can do very easily.
 ---
 
 Everything in a JIC stylesheet revolves around the use of a very special pair of brackets that look like this `${}`. They open with a `${`, and close with a `}`. In a JIC stylesheet everything _outside_ these brackets is CSS, and everything _inside_ these brackets is JavaScript.

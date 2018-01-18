@@ -1,6 +1,7 @@
 ---
 title: Using an Element’s Text Characters
 keywords: element text, text content, characters, number of characters, chars, number of chars, text length, innerHTML
+description: How can you use knowledge of an element's number of characters of text content for styling? JavaScript is aware of the number of characters inside of every element, learn how to use JavaScript and CSS together to style elements based on their own number of characters.
 ---
 
 There is now way to use CSS to apply styles to an element based on the number of characters of text it contains - but this is something JavaScript can help us with.
